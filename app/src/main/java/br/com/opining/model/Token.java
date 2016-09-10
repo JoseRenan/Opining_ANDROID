@@ -1,9 +1,23 @@
 package br.com.opining.model;
 
-/**
- * Created by Juan on 16/06/2016.
- */
 public class Token {
 
-    //TODO: Criar atributos e métodos
+    User user;
+    String token;
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+    public String getToken() {
+        return token;
+    }
+
+    public void setToken(String token) {
+        this.token = token;
+    }
 }

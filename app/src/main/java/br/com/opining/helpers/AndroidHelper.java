@@ -27,7 +27,7 @@ public class AndroidHelper {
     }
 
     public static void saveToken(Context context, Token token) {
-        //TODO PreferenceManager.getDefaultSharedPreferences(context).edit().putString(TOKEN, token.getToken()).apply();
+        PreferenceManager.getDefaultSharedPreferences(context).edit().putString(TOKEN, token.getToken()).apply();
     }
 
     public static void showSnackbar(Activity activity, String msg) {

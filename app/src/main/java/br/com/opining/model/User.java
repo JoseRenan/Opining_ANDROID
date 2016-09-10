@@ -1,9 +1,32 @@
 package br.com.opining.model;
 
-/**
- * Created by Juan on 16/06/2016.
- */
 public class User {
 
-    //TODO: Criar atributos e métodos
+    String login;
+    String name;
+    Boolean invalid;
+
+    public String getLogin() {
+        return login;
+    }
+
+    public void setLogin(String login) {
+        this.login = login;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public Boolean getInvalid() {
+        return invalid;
+    }
+
+    public void setInvalid(Boolean invalid) {
+        this.invalid = invalid;
+    }
 }
