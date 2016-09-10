@@ -13,9 +13,6 @@ import android.widget.Toast;
 import br.com.opining.R;
 import br.com.opining.model.Token;
 
-/**
- * Created by Juan on 16/06/2016.
- */
 public class AndroidHelper {
 
     private static final String TOKEN = "token";
@@ -33,7 +30,7 @@ public class AndroidHelper {
     public static void showSnackbar(Activity activity, String msg) {
         Snackbar snackbar = Snackbar.make(activity.findViewById(android.R.id.content), msg, Snackbar.LENGTH_LONG);
         ViewGroup group = (ViewGroup) snackbar.getView();
-        //TODO group.setBackgroundColor(ContextCompat.getColor(activity.getApplicationContext(), R.color.snack));
+        group.setBackgroundColor(ContextCompat.getColor(activity.getApplicationContext(), R.attr.colorAccent));
         snackbar.show();
     }
 
@@ -49,6 +46,4 @@ public class AndroidHelper {
     public static void showToast(Context context, int msg) {
         showToast(context, context.getString(msg));
     }
-
-
 }
