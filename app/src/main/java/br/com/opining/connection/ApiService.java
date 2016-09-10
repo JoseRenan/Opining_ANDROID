@@ -4,27 +4,32 @@ import br.com.opining.model.Client;
 import br.com.opining.model.Token;
 import br.com.opining.model.User;
 import retrofit2.Call;
+import retrofit2.http.Field;
+import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.POST;
 
-/**
- * Created by Juan on 16/06/2016.
- */
 public interface ApiService {
+
     String BASE_URL = "http://localhost:8080/Opining_SERVICE";
 
-    @POST("/")//TODO: indentificar endereços no serviço
-    Call<Token> login(String login, String password);
+    @FormUrlEncoded
+    @POST("/access/login")//TODO: indentificar endereços no serviço
+    Call<Token> login(@Field("login") String login,
+                      @Field("password") String password);
 
-    @POST("/")
+    @POST("/user/register")
     Call<User> registerUser(Client user);
 
-    @POST("/")
+    @POST("/user/edit/profile")
     Call<User> updateProfile(User user);
 
-    @POST("/")
-    Call<Token> changePassword(String oldPassword, String newPassword, Boolean invalidateToken);
+    @FormUrlEncoded
+    @POST("/edit/password")
+    Call<Token> changePassword(@Field("old_password") String oldPassword,
+                               @Field("new_password") String newPassword,
+                               @Field("invalidate_token") Boolean invalidateToken);
 
-    @POST("/")
-    Call<Void> invalidate(String password);
-
+    @FormUrlEncoded
+    @POST("/user/invalidate")
+    Call<Void> invalidate(@Field("password") String password);
 }
