@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">Opining</string>
+
+    <string name="login">Login</string>
+    <string name="password">Senha</string>
+    <string name="name">Nome</string>
+    <string name="email">Email</string>
+    <string name="repeat_password">Repita a senha</string>
+    <string name="register">Cadastrar</string>
+
+    <string name="enter">Entrar</string>
+    <string name="do_register">Cadastrar-se</string>
+
+    <!-- Content description -->
+    <string name="opining_logo">Logo do Opining</string>
+
+</resources>

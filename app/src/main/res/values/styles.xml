@@ -1,0 +1,21 @@
+<resources>
+
+    <style name="Theme.Main" parent="Theme.AppCompat.NoActionBar">
+        <item name="android:windowBackground">@color/grey</item>
+    </style>
+
+    <!-- Purple theme for the initial screens -->
+    <style name="Theme.Purple" parent="Theme.Main">
+        <item name="colorPrimary">@color/colorPrimaryDeepPurple</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDarkDeepPurple</item>
+        <item name="colorAccent">@color/colorAccentDeepPurple</item>
+    </style>
+
+    <!-- Pink theme for the home screens -->
+    <style name="Theme.Pink" parent="Theme.Main">
+        <item name="colorPrimary">@color/colorPrimaryPink</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDarkPink</item>
+        <item name="colorAccent">@color/colorAccentPink</item>
+    </style>
+
+</resources>
