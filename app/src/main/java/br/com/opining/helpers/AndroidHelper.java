@@ -27,13 +27,13 @@ public class AndroidHelper {
     }
 
     public static void saveToken(Context context, Token token) {
-        PreferenceManager.getDefaultSharedPreferences(context).edit().putString(TOKEN, token.getToken()).apply();
+        //TODO PreferenceManager.getDefaultSharedPreferences(context).edit().putString(TOKEN, token.getToken()).apply();
     }
 
     public static void showSnackbar(Activity activity, String msg) {
         Snackbar snackbar = Snackbar.make(activity.findViewById(android.R.id.content), msg, Snackbar.LENGTH_LONG);
         ViewGroup group = (ViewGroup) snackbar.getView();
-        group.setBackgroundColor(ContextCompat.getColor(activity.getApplicationContext(), R.color.snack));
+        //TODO group.setBackgroundColor(ContextCompat.getColor(activity.getApplicationContext(), R.color.snack));
         snackbar.show();
     }
 
