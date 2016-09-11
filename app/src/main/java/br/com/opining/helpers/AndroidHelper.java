@@ -3,10 +3,13 @@ package br.com.opining.helpers;
 import android.app.Activity;
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.content.res.TypedArray;
 import android.preference.PreferenceManager;
 import android.support.annotation.Nullable;
 import android.support.design.widget.Snackbar;
 import android.support.v4.content.ContextCompat;
+import android.util.Log;
+import android.util.TypedValue;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
@@ -28,9 +31,10 @@ public class AndroidHelper {
     }
 
     public static void showSnackbar(Activity activity, String msg) {
+
         Snackbar snackbar = Snackbar.make(activity.findViewById(android.R.id.content), msg, Snackbar.LENGTH_LONG);
         ViewGroup group = (ViewGroup) snackbar.getView();
-        group.setBackgroundColor(ContextCompat.getColor(activity.getApplicationContext(), R.attr.colorAccent));
+        group.setBackgroundColor(ContextCompat.getColor(activity.getApplicationContext(), R.color.deepOrange));
         snackbar.show();
     }
 

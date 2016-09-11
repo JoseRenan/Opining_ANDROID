@@ -2,8 +2,8 @@ package br.com.opining.model;
 
 public class Client {
 
-    User user;
-    String password;
+    private User user;
+    private String password;
 
     public User getUser() {
         return user;

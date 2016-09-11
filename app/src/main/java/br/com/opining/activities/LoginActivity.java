@@ -11,6 +11,7 @@ import br.com.opining.R;
 public class LoginActivity extends Activity {
 
     private Button btnRedirectRegister;
+    private Button btnRedirectEnter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,6 +24,16 @@ public class LoginActivity extends Activity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(LoginActivity.this, RegisterActivity.class);
+                LoginActivity.this.startActivity(intent);
+            }
+        });
+
+        btnRedirectEnter = (Button) findViewById(R.id.btn_enter);
+        btnRedirectEnter.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(LoginActivity.this, HomeActivity.class);
                 LoginActivity.this.startActivity(intent);
             }
         });

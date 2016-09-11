@@ -2,8 +2,8 @@ package br.com.opining.model;
 
 public class Token {
 
-    User user;
-    String token;
+    private User user;
+    private String token;
 
     public User getUser() {
         return user;

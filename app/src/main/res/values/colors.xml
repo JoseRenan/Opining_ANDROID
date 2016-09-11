@@ -2,8 +2,9 @@
 
 <resources>
 
-    <color name="grey">#ddd</color>
+    <color name="grey">#F9F9F9</color>
     <color name="black">#000</color>
+    <color name="deepOrange">#E64A19</color>
 
     <color name="colorPrimaryDeepPurple">#673AB7</color>
     <color name="colorPrimaryDarkDeepPurple">#512DA8</color>

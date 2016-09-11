@@ -10,7 +10,7 @@ import br.com.opining.R;
 
 public class RegisterActivity extends AppCompatActivity {
 
-    Toolbar tbMain;
+    private Toolbar tbMain;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

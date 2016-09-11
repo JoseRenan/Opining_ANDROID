@@ -8,22 +8,22 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/Theme.Purple">
-
-        <activity android:name=".activities.SplashScreen"
+        <activity
+            android:name=".activities.SplashScreen"
             android:theme="@style/Theme.Pink">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-        <activity
-            android:name=".activities.LoginActivity"/>
-
+        <activity android:name=".activities.LoginActivity" />
         <activity
             android:name=".activities.RegisterActivity"
-            android:parentActivityName=".activities.LoginActivity"/>
+            android:parentActivityName=".activities.LoginActivity" />
 
+        <activity android:name=".activities.HomeActivity"
+            android:theme="@style/Theme.Pink"/>
     </application>
 
 </manifest>

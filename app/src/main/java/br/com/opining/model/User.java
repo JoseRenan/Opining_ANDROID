@@ -2,9 +2,9 @@ package br.com.opining.model;
 
 public class User {
 
-    String login;
-    String name;
-    Boolean invalid;
+    private String login;
+    private String name;
+    private Boolean invalid;
 
     public String getLogin() {
         return login;
