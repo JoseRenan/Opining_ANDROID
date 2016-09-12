@@ -105,7 +105,8 @@
                 android:text="@string/register"
                 android:fontFamily="sans-serif-light"
                 android:background="@drawable/button_invisible_black"
-                android:id="@+id/btn_register" />
+                android:id="@+id/btn_register"
+                android:onClick="doRegister"/>
 
         </LinearLayout>
     </ScrollView>

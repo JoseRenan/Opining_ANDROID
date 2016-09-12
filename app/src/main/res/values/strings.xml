@@ -107,5 +107,6 @@
     <string name="search">Pesquisar</string>
     <string name="settings">Configurações</string>
     <string name="logout">Sair</string>
+    <string name="error">Ocorreu um erro ao tentar realizar essa ação.</string>
 
 </resources>
