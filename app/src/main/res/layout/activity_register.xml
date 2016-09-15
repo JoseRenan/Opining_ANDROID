@@ -55,18 +55,6 @@
                 android:paddingLeft="@dimen/edit_text_padding"
                 android:paddingRight="@dimen/edit_text_padding"
                 android:layout_marginTop="@dimen/edit_text_margin"
-                android:inputType="textPersonName"
-                android:fontFamily="sans-serif-light"
-                android:background="@drawable/edit_text_radius_middle"
-                android:hint="@string/login"
-                android:id="@+id/edt_login" />
-
-            <EditText
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/edit_text_home_height"
-                android:paddingLeft="@dimen/edit_text_padding"
-                android:paddingRight="@dimen/edit_text_padding"
-                android:layout_marginTop="@dimen/edit_text_margin"
                 android:fontFamily="sans-serif-light"
                 android:background="@drawable/edit_text_radius_middle"
                 android:inputType="textEmailAddress"
