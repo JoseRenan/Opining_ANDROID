@@ -15,7 +15,6 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.UserProfileChangeRequest;
 
 import br.com.opining.R;
 
@@ -83,7 +82,9 @@ public class RegisterActivity extends AppCompatActivity {
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
                             if(task.isSuccessful()){
-
+                                Intent intent = new Intent(RegisterActivity.this, HomeActivity.class);
+                                startActivity(intent);
+                                finish();
                             }
                         }
                     });
