@@ -4,23 +4,20 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
-import android.support.design.widget.Snackbar;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.Task;
-import com.google.firebase.FirebaseNetworkException;
-import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
 import br.com.opining.R;
-import br.com.opining.helpers.AndroidHelper;
-import br.com.opining.task.FailureConnectionListener;
+import br.com.opining.task.FailureListener;
+import br.com.opining.task.LoginListener;
 
-public class LoginActivity extends Activity {
+public class LoginActivity extends Activity implements OnFailureListener{
 
     private FirebaseAuth firebaseAuth;
     private Button btnRedirectRegister;
@@ -59,23 +56,14 @@ public class LoginActivity extends Activity {
             enableForm(true);
 
         }else if(!verifyPassword(password) ){
-            editPassword.setText(getString(R.string.error_password));
+            editPassword.setError(getString(R.string.error_password));
             enableForm(true);
 
         }else {
             firebaseAuth.signInWithEmailAndPassword(email, password)
-                    .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-                @Override
-                public void onComplete(@NonNull Task<AuthResult> task) {
-                    if (task.isSuccessful()){
-                        Intent intent = new Intent(LoginActivity.this, HomeActivity.class);
-                        startActivity(intent);
-                        finish();
-                    }else {
-                        enableForm(true);
-                    }
-                }
-            }).addOnFailureListener(new FailureConnectionListener(findViewById(android.R.id.content)));
+                    .addOnSuccessListener(new LoginListener(this))
+                    .addOnFailureListener(new FailureListener(this))
+                    .addOnFailureListener(this);
         }
     }
 
@@ -92,5 +80,10 @@ public class LoginActivity extends Activity {
         editEmail.setEnabled(value);
         btnRedirectEnter.setEnabled(value);
         btnRedirectRegister.setEnabled(value);
+    }
+
+    @Override
+    public void onFailure(@NonNull Exception e) {
+        enableForm(true);
     }
 }

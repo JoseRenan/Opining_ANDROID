@@ -6,11 +6,13 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
 import br.com.opining.R;
+import br.com.opining.task.RetrieveListener;
 
 public class SplashScreen extends AppCompatActivity{
 
@@ -28,16 +30,24 @@ public class SplashScreen extends AppCompatActivity{
         firebaseAuth = FirebaseAuth.getInstance();
 
         FirebaseUser user = firebaseAuth.getCurrentUser();
-        if(user != null && user.reload().isSuccessful()){
-            Intent intent = new Intent(SplashScreen.this, HomeActivity.class);
-            startActivity(intent);
-            finish();
+        if(user != null){
+            user.reload().addOnSuccessListener(new RetrieveListener(this))
+                    .addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception e) {
+                            doLogin();
+                        }
+                    });
         }
         else{
-            Intent intent = new Intent(SplashScreen.this, LoginActivity.class);
-            startActivity(intent);
-            finish();
+            doLogin();
         }
+    }
+
+    public void doLogin(){
+        Intent intent = new Intent(this, LoginActivity.class);
+        startActivity(intent);
+        finish();
     }
 
 }

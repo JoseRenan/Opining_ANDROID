@@ -6,6 +6,8 @@ import android.support.v4.app.NavUtils;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
@@ -13,17 +15,19 @@ import android.widget.EditText;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
-import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
 import br.com.opining.R;
+import br.com.opining.task.FailureListener;
+import br.com.opining.task.RegisterListener;
 
-public class RegisterActivity extends AppCompatActivity {
+public class RegisterActivity extends AppCompatActivity implements OnCompleteListener{
 
     private Toolbar tbMain;
     private EditText edt_name;
     private EditText edt_email;
     private EditText edt_password;
+    private EditText edt_confirm;
     private Button btn;
 
     private FirebaseAuth firebaseAuth;
@@ -44,7 +48,33 @@ public class RegisterActivity extends AppCompatActivity {
         btn = (Button) findViewById(R.id.btn_register);
         edt_name = (EditText) findViewById(R.id.edt_name);
         edt_email = (EditText) findViewById(R.id.edt_email);
+
+        initializePassword();
+
+    }
+
+    private void initializePassword(){
         edt_password = (EditText) findViewById(R.id.edt_password);
+        edt_confirm = (EditText) findViewById(R.id.edt_repeat_password);
+
+        edt_confirm.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                if (edt_confirm.getText().toString() != edt_password.getText().toString()){
+                    edt_confirm.setError(getString(R.string.error_password));
+                }
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
+
     }
 
     @Override
@@ -60,6 +90,7 @@ public class RegisterActivity extends AppCompatActivity {
 
     public void doRegister(View v){
         enableForm(false);
+
         String email = edt_email.getText().toString();
         String password = edt_password.getText().toString();
         final String nome = edt_name.getText().toString();
@@ -67,26 +98,20 @@ public class RegisterActivity extends AppCompatActivity {
         if(!verifyEmail(email)){
             edt_email.setError(getString(R.string.error_email));
             enableForm(true);
-
         }else if(!verifyPassword(password)){
             edt_password.setError(getString(R.string.error_password));
             enableForm(true);
-
+        }else if(password.equals(edt_confirm.getText().toString())){
+            edt_confirm.setText(R.string.error_password);
+            enableForm(true);
         }else if(!verifyName(nome)){
             edt_name.setError(getString(R.string.error_name));
             enableForm(true);
         }else {
             firebaseAuth.createUserWithEmailAndPassword(email, password)
-                    .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-                        @Override
-                        public void onComplete(@NonNull Task<AuthResult> task) {
-                            if(task.isSuccessful()){
-                                Intent intent = new Intent(RegisterActivity.this, HomeActivity.class);
-                                startActivity(intent);
-                                finish();
-                            }
-                        }
-                    });
+                    .addOnSuccessListener(new RegisterListener(this))
+                    .addOnFailureListener(new FailureListener(this))
+                    .addOnCompleteListener(this);
         }
     }
 
@@ -106,6 +131,12 @@ public class RegisterActivity extends AppCompatActivity {
         edt_email.setEnabled(value);
         edt_password.setEnabled(value);
         edt_name.setEnabled(value);
+        edt_confirm.setEnabled(value);
         btn.setEnabled(value);
+    }
+
+    @Override
+    public void onComplete(@NonNull Task task) {
+        enableForm(true);
     }
 }

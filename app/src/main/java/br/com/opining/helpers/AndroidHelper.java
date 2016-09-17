@@ -11,8 +11,6 @@ import br.com.opining.R;
 
 public class AndroidHelper {
 
-    private static final String TOKEN = "token";
-
     public static void showSnackbar(Activity activity, String msg) {
         Snackbar snackbar = Snackbar.make(activity.findViewById(android.R.id.content), msg, Snackbar.LENGTH_LONG);
         ViewGroup group = (ViewGroup) snackbar.getView();

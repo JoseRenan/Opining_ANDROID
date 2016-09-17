@@ -112,5 +112,7 @@
     <string name="error_email">Email Inválido</string>
     <string name="error_password">Senha Inválida</string>
     <string name="error_name">Nome Inválido</string>
+    <string name="error_credential">Senha Incorreta</string>
+    <string name="error_inexist">Login Inexistente</string>
 
 </resources>
