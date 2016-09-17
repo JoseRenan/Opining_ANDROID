@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "592725709987",
+    "firebase_url": "https://opining-449ad.firebaseio.com",
+    "project_id": "opining-449ad",
+    "storage_bucket": "opining-449ad.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:592725709987:android:04f585fb2fc617bb",
+        "android_client_info": {
+          "package_name": "br.com.opining"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "592725709987-jut2n2gqcm8iab3da3k2llips743i98e.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA8B-k524jUdaxTCOljUZkV8-M6ca9L-Bw"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
