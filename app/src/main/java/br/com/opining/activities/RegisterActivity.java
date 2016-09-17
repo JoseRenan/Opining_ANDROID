@@ -58,7 +58,6 @@ public class RegisterActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-
     public void doRegister(View v){
         enableForm(false);
         String email = edt_email.getText().toString();

@@ -108,6 +108,7 @@
     <string name="settings">Configurações</string>
     <string name="logout">Sair</string>
     <string name="error">Ocorreu um erro ao tentar realizar essa ação.</string>
+    <string name="error_time_out">Não foi possível se conectar com o servidor</string>
     <string name="error_email">Email Inválido</string>
     <string name="error_password">Senha Inválida</string>
     <string name="error_name">Nome Inválido</string>

@@ -12,11 +12,13 @@ import android.widget.EditText;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.FirebaseNetworkException;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
 import br.com.opining.R;
 import br.com.opining.helpers.AndroidHelper;
+import br.com.opining.task.FailureConnectionListener;
 
 public class LoginActivity extends Activity {
 
@@ -70,10 +72,10 @@ public class LoginActivity extends Activity {
                         startActivity(intent);
                         finish();
                     }else {
-                        AndroidHelper.showSnackbar(LoginActivity.this, R.string.error);
+                        enableForm(true);
                     }
                 }
-            });
+            }).addOnFailureListener(new FailureConnectionListener(findViewById(android.R.id.content)));
         }
     }
 
