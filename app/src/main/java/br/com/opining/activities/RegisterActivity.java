@@ -5,8 +5,6 @@ import android.support.v4.app.NavUtils;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
-import android.text.Editable;
-import android.text.TextWatcher;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
@@ -27,7 +25,7 @@ public class RegisterActivity extends AppCompatActivity implements OnCompleteLis
     private EditText edtEmail;
     private EditText edtPassword;
     private EditText edtConfirmPassword;
-    private Button btnRegistrer;
+    private Button btnRegister;
 
     private FirebaseAuth firebaseAuth;
 
@@ -44,7 +42,7 @@ public class RegisterActivity extends AppCompatActivity implements OnCompleteLis
         getSupportActionBar().setDisplayShowTitleEnabled(false);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        btnRegistrer = (Button) findViewById(R.id.btn_register);
+        btnRegister = (Button) findViewById(R.id.btn_register);
         edtName = (EditText) findViewById(R.id.edt_name);
         edtEmail = (EditText) findViewById(R.id.edt_email);
         edtPassword = (EditText) findViewById(R.id.edt_password);
@@ -120,7 +118,7 @@ public class RegisterActivity extends AppCompatActivity implements OnCompleteLis
         edtPassword.setEnabled(value);
         edtName.setEnabled(value);
         edtConfirmPassword.setEnabled(value);
-        btnRegistrer.setEnabled(value);
+        btnRegister.setEnabled(value);
     }
 
     @Override
