@@ -23,7 +23,7 @@
     <string name="error_confirm_password">Senhas não coincidem</string>
     <string name="error_password">Senha Inválida</string>
     <string name="error_name">Nome Inválido</string>
-    <string name="error_credential">Senha Incorreta</string>
+    <string name="error_credential">Senha incorreta ou inexistente</string>
     <string name="error_inexist">Login Inexistente</string>
     <string name="error_duplicate">Essa conta já existe</string>
 
