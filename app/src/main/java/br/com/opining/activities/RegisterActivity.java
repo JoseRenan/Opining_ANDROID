@@ -1,6 +1,5 @@
 package br.com.opining.activities;
 
-import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v4.app.NavUtils;
 import android.support.v7.app.AppCompatActivity;
@@ -24,11 +23,11 @@ import br.com.opining.task.RegisterListener;
 public class RegisterActivity extends AppCompatActivity implements OnCompleteListener{
 
     private Toolbar tbMain;
-    private EditText edt_name;
-    private EditText edt_email;
-    private EditText edt_password;
-    private EditText edt_confirm;
-    private Button btn;
+    private EditText edtName;
+    private EditText edtEmail;
+    private EditText edtPassword;
+    private EditText edtConfirmPassword;
+    private Button btnRegistrer;
 
     private FirebaseAuth firebaseAuth;
 
@@ -45,40 +44,16 @@ public class RegisterActivity extends AppCompatActivity implements OnCompleteLis
         getSupportActionBar().setDisplayShowTitleEnabled(false);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        btn = (Button) findViewById(R.id.btn_register);
-        edt_name = (EditText) findViewById(R.id.edt_name);
-        edt_email = (EditText) findViewById(R.id.edt_email);
-
-        initializePassword();
-
-    }
-
-    private void initializePassword(){
-        edt_password = (EditText) findViewById(R.id.edt_password);
-        edt_confirm = (EditText) findViewById(R.id.edt_repeat_password);
-
-        edt_confirm.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-            }
-
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-                if (edt_confirm.getText().toString() != edt_password.getText().toString()){
-                    edt_confirm.setError(getString(R.string.error_password));
-                }
-            }
-
-            @Override
-            public void afterTextChanged(Editable s) {
-
-            }
-        });
-
+        btnRegistrer = (Button) findViewById(R.id.btn_register);
+        edtName = (EditText) findViewById(R.id.edt_name);
+        edtEmail = (EditText) findViewById(R.id.edt_email);
+        edtPassword = (EditText) findViewById(R.id.edt_password);
+        edtConfirmPassword = (EditText) findViewById(R.id.edt_repeat_password);
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
+
         int id = item.getItemId();
 
         if(id == android.R.id.home){
@@ -89,25 +64,38 @@ public class RegisterActivity extends AppCompatActivity implements OnCompleteLis
     }
 
     public void doRegister(View v){
-        enableForm(false);
 
-        String email = edt_email.getText().toString();
-        String password = edt_password.getText().toString();
-        final String nome = edt_name.getText().toString();
+        Boolean enabled = false;
+        enableForm(enabled);
 
-        if(!verifyEmail(email)){
-            edt_email.setError(getString(R.string.error_email));
-            enableForm(true);
-        }else if(!verifyPassword(password)){
-            edt_password.setError(getString(R.string.error_password));
-            enableForm(true);
-        }else if(password.equals(edt_confirm.getText().toString())){
-            edt_confirm.setText(R.string.error_password);
-            enableForm(true);
-        }else if(!verifyName(nome)){
-            edt_name.setError(getString(R.string.error_name));
-            enableForm(true);
-        }else {
+        String email = edtEmail.getText().toString();
+        String password = edtPassword.getText().toString();
+        String confirmPassword = edtConfirmPassword.getText().toString();
+        final String nome = edtName.getText().toString();
+
+        if (!verifyEmail(email)) {
+            edtEmail.setError(getString(R.string.error_email));
+            enabled = true;
+        }
+
+        if (!verifyPassword(password)) {
+            edtPassword.setError(getString(R.string.error_password));
+            enabled = true;
+        }
+
+        if (!password.equals(confirmPassword)) {
+            edtConfirmPassword.setError(getString(R.string.error_confirm_password));
+            enabled = true;
+        }
+
+        if (!verifyName(nome)) {
+            edtName.setError(getString(R.string.error_name));
+            enabled = true;
+        }
+
+        enableForm(enabled);
+
+        if (!enabled) {
             firebaseAuth.createUserWithEmailAndPassword(email, password)
                     .addOnSuccessListener(new RegisterListener(this))
                     .addOnFailureListener(new FailureListener(this))
@@ -128,11 +116,11 @@ public class RegisterActivity extends AppCompatActivity implements OnCompleteLis
     }
 
     private void enableForm(boolean value){
-        edt_email.setEnabled(value);
-        edt_password.setEnabled(value);
-        edt_name.setEnabled(value);
-        edt_confirm.setEnabled(value);
-        btn.setEnabled(value);
+        edtEmail.setEnabled(value);
+        edtPassword.setEnabled(value);
+        edtName.setEnabled(value);
+        edtConfirmPassword.setEnabled(value);
+        btnRegistrer.setEnabled(value);
     }
 
     @Override
