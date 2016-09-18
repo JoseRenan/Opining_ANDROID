@@ -5,21 +5,20 @@
 
     <item
         android:id="@+id/act_search"
-        android:orderInCategory="1"
+        android:orderInCategory="10"
         android:title="@string/search"
         app:showAsAction="always"
         android:icon="@drawable/ic_search_white"/>
 
     <item
         android:id="@+id/act_settings"
-        android:orderInCategory="2"
-        android:menuCategory="container"
+        android:orderInCategory="20"
         android:title="@string/settings"
         app:showAsAction="never"/>
 
     <item
         android:id="@+id/act_logout"
-        android:orderInCategory="3"
+        android:orderInCategory="30"
         android:title="@string/logout"
         app:showAsAction="never"/>
 
