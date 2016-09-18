@@ -25,5 +25,8 @@
     <string name="error_name">Nome Inválido</string>
     <string name="error_credential">Senha Incorreta</string>
     <string name="error_inexist">Login Inexistente</string>
+    <string name="error_duplicate">Essa conta já existe</string>
+
+    <string name="facebook_app_id">1001149219960156</string>
 
 </resources>

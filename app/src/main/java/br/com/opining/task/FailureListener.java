@@ -10,6 +10,7 @@ import com.google.android.gms.tasks.OnFailureListener;
 import com.google.firebase.FirebaseNetworkException;
 import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException;
 import com.google.firebase.auth.FirebaseAuthInvalidUserException;
+import com.google.firebase.auth.FirebaseAuthUserCollisionException;
 
 import br.com.opining.R;
 
@@ -32,6 +33,8 @@ public class FailureListener implements OnFailureListener {
             Snackbar.make(activity.findViewById(android.R.id.content), R.string.error_credential, Snackbar.LENGTH_LONG).show();
         }else if(e instanceof FirebaseAuthInvalidUserException){
             Snackbar.make(activity.findViewById(android.R.id.content), R.string.error_inexist, Snackbar.LENGTH_LONG).show();
+        }else if(e instanceof FirebaseAuthUserCollisionException){
+            Snackbar.make(activity.findViewById(android.R.id.content), R.string.error_duplicate, Snackbar.LENGTH_LONG).show();
         }
     }
 }
