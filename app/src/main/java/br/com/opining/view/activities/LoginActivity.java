@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -43,25 +44,7 @@ public class LoginActivity extends Activity implements OnFailureListener{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        FacebookSdk.sdkInitialize(getApplicationContext());
-        callbackManager = CallbackManager.Factory.create();
-        LoginManager.getInstance().registerCallback(callbackManager, new FacebookCallback<LoginResult>() {
-            @Override
-            public void onSuccess(LoginResult loginResult) {
-                AuthCredential credential = FacebookAuthProvider.getCredential(loginResult.getAccessToken().getToken());
-                firebaseAuth.signInWithCredential(credential)
-                        .addOnSuccessListener(new LoginListener(LoginActivity.this))
-                        .addOnFailureListener(new FailureListener(LoginActivity.this));
-            }
 
-            @Override
-            public void onCancel() {}
-
-            @Override
-            public void onError(FacebookException error) {
-                AndroidHelper.showSnackbar(LoginActivity.this, error.getMessage());
-            }
-        });
 
         firebaseAuth = FirebaseAuth.getInstance();
         btnRedirectEnter = (Button) findViewById(R.id.btn_enter);
@@ -85,7 +68,11 @@ public class LoginActivity extends Activity implements OnFailureListener{
         callbackManager.onActivityResult(requestCode,resultCode,data);
     }
 
+
+
+
     public void doLogin(View view){
+
         enableForm(false);
         String email = editEmail.getText().toString();
         String password = editPassword.getText().toString();
@@ -107,7 +94,7 @@ public class LoginActivity extends Activity implements OnFailureListener{
     }
 
     private boolean verifyEmail(String email){
-        return email.contains("@");
+        return email.matches("(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*|\"(?:[\\x01-\\x08\\x0b\\x0c\\x0e-\\x1f\\x21\\x23-\\x5b\\x5d-\\x7f]|\\\\[\\x01-\\x09\\x0b\\x0c\\x0e-\\x7f])*\")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\\[(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?|[a-z0-9-]*[a-z0-9]:(?:[\\x01-\\x08\\x0b\\x0c\\x0e-\\x1f\\x21-\\x5a\\x53-\\x7f]|\\\\[\\x01-\\x09\\x0b\\x0c\\x0e-\\x7f])+)\\])");
     }
 
     private boolean verifyPassword(String password){
@@ -121,7 +108,33 @@ public class LoginActivity extends Activity implements OnFailureListener{
         btnRedirectRegister.setEnabled(value);
     }
 
+
     public void doLoginWithFacebook(View view){
+        FacebookSdk.sdkInitialize(getApplicationContext());
+        callbackManager = CallbackManager.Factory.create();
+        LoginManager.getInstance().registerCallback(callbackManager, new FacebookCallback<LoginResult>() {
+            @Override
+            public void onSuccess(LoginResult loginResult) {
+                Log.i(this.toString(), "usuário autenticado com facebook");
+
+                AuthCredential credential = FacebookAuthProvider.getCredential(loginResult.getAccessToken().getToken());
+                Log.i(this.toString(), "credenciando usuário com firebase");
+                firebaseAuth.signInWithCredential(credential)
+                        .addOnSuccessListener(new LoginListener(LoginActivity.this))
+                        .addOnFailureListener(new FailureListener(LoginActivity.this));
+
+
+            }
+
+            @Override
+            public void onCancel() {}
+
+            @Override
+            public void onError(FacebookException error) {
+                Log.w(this.toString(), error.getMessage());
+                AndroidHelper.showSnackbar(LoginActivity.this, error.getMessage());
+            }
+        });
         LoginManager.getInstance().logInWithReadPermissions(this, Arrays.asList("public_profile", "email"));
     }
 
