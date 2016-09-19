@@ -14,7 +14,7 @@ public class AndroidHelper {
     public static void showSnackbar(Activity activity, String msg) {
         Snackbar snackbar = Snackbar.make(activity.findViewById(android.R.id.content), msg, Snackbar.LENGTH_LONG);
         ViewGroup group = (ViewGroup) snackbar.getView();
-        group.setBackgroundColor(ContextCompat.getColor(activity.getApplicationContext(), R.color.deepOrange));
+        group.setBackgroundColor(ContextCompat.getColor(activity.getApplicationContext(), R.color.orange));
         snackbar.show();
     }
 

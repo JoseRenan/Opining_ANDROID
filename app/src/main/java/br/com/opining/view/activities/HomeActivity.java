@@ -1,4 +1,4 @@
-package br.com.opining.activities;
+package br.com.opining.view.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -6,7 +6,6 @@ import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -67,10 +66,14 @@ public class HomeActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
+
         int id = item.getItemId();
 
         if(id == R.id.act_logout){
             doLogout();
+        } else if (id == R.id.act_settings) {
+            Intent intent = new Intent(HomeActivity.this, SettingsActivity.class);
+            HomeActivity.this.startActivity(intent);
         }
 
         return super.onOptionsItemSelected(item);

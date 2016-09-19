@@ -4,7 +4,7 @@
     android:theme="@style/Theme.Pink"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="br.com.opining.activities.HomeActivity">
+    tools:context=".view.activities.HomeActivity">
 
     <include
         layout="@layout/main_toolbar"

@@ -2,14 +2,10 @@ package br.com.opining.task;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.support.annotation.NonNull;
-import android.util.Log;
 
-import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.android.gms.tasks.Task;
 
-import br.com.opining.activities.HomeActivity;
+import br.com.opining.view.activities.HomeActivity;
 
 /**
  * Created by juan on 16/09/16.

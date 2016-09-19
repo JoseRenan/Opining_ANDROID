@@ -1,4 +1,4 @@
-package br.com.opining.activities;
+package br.com.opining.view.activities;
 
 import android.support.annotation.NonNull;
 import android.support.v4.app.NavUtils;

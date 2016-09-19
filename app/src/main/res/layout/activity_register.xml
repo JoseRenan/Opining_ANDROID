@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:descendantFocusability="beforeDescendants"
     android:focusableInTouchMode="true"
-    tools:context=".activities.RegisterActivity">
+    tools:context=".view.activities.RegisterActivity">
 
     <include
         layout="@layout/main_toolbar"

@@ -4,10 +4,9 @@ import android.app.Activity;
 import android.content.Intent;
 import android.support.annotation.NonNull;
 
-import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 
-import br.com.opining.activities.LoginActivity;
+import br.com.opining.view.activities.LoginActivity;
 
 /**
  * Created by juan on 17/09/16.

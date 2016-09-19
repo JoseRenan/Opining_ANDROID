@@ -18,19 +18,27 @@
             android:label="@string/app_name" />
 
         <activity
-            android:name=".activities.SplashScreen"
+            android:name=".view.activities.SplashScreen"
             android:theme="@style/Theme.Pink">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activities.LoginActivity" />
-        <activity android:name=".activities.RegisterActivity"
-            android:parentActivityName=".activities.LoginActivity" />
-        <activity android:name=".activities.HomeActivity"
-            android:theme="@style/Theme.Pink"/>
+
+        <activity android:name=".view.activities.LoginActivity" />
+
+        <activity
+            android:name=".view.activities.RegisterActivity"
+            android:parentActivityName=".view.activities.LoginActivity" />
+
+        <activity
+            android:name=".view.activities.HomeActivity"
+            android:theme="@style/Theme.Pink" />
+
+        <activity android:name=".view.activities.SettingsActivity"
+            android:theme="@style/Theme.Amber"
+            android:parentActivityName=".view.activities.HomeActivity"/>
     </application>
 
 </manifest>

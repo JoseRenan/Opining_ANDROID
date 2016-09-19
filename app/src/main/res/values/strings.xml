@@ -1,22 +1,30 @@
 <resources>
     <string name="app_name">Opining</string>
 
+    <!-- Auth strings -->
     <string name="login">Login</string>
     <string name="password">Senha</string>
     <string name="name">Nome</string>
     <string name="email">Email</string>
     <string name="repeat_password">Repita a senha</string>
-    <string name="register">Cadastrar</string>
-
     <string name="enter">Entrar</string>
     <string name="do_register">Cadastrar-se</string>
+    <string name="logout">Sair</string>
 
     <!-- Content description -->
     <string name="opining_logo">Logo do Opining</string>
 
+    <!-- Screen strings -->
     <string name="search">Pesquisar</string>
     <string name="settings">Configurações</string>
-    <string name="logout">Sair</string>
+    <string name="register">Cadastrar</string>
+    <string name="profile">Perfil</string>
+    <string name="security">Segurança</string>
+    <string name="remove_account">Desativar conta</string>
+    <string name="contact">Contate-nos</string>
+    <string name="about">Sobre o aplicativo</string>
+
+    <!-- Error strings -->
     <string name="error">Ocorreu um erro ao tentar realizar essa ação.</string>
     <string name="error_time_out">Não foi possível se conectar com o servidor</string>
     <string name="error_email">Email Inválido</string>

@@ -4,7 +4,7 @@
 
     <color name="grey">#F9F9F9</color>
     <color name="black">#000</color>
-    <color name="deepOrange">#E64A19</color>
+    <color name="orange">#E64A19</color>
 
     <color name="colorPrimaryDeepPurple">#673AB7</color>
     <color name="colorPrimaryDarkDeepPurple">#512DA8</color>
@@ -14,4 +14,10 @@
     <color name="colorPrimaryPink">#E91E63</color>
     <color name="colorPrimaryDarkPink">#C2185B</color>
     <color name="colorAccentPink">#FFC107</color>
+
+    <color name="colorPrimaryAmber">#FFC107</color>
+    <color name="colorPrimaryDarkAmber">#FFA000</color>
+    <color name="colorAccentAmber">#E91E63</color>
+
+    <color name="black_overlay">#66000000</color>
 </resources>

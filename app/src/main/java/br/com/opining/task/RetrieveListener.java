@@ -5,7 +5,7 @@ import android.content.Intent;
 
 import com.google.android.gms.tasks.OnSuccessListener;
 
-import br.com.opining.activities.HomeActivity;
+import br.com.opining.view.activities.HomeActivity;
 
 /**
  * Created by juan on 16/09/16.

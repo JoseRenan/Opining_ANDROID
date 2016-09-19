@@ -9,7 +9,7 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     android:background="@color/colorPrimaryDarkPink"
-    tools:context=".activities.SplashScreen">
+    tools:context=".view.activities.SplashScreen">
 
     <ImageView
         android:layout_width="match_parent"

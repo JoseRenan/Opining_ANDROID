@@ -1,4 +1,4 @@
-package br.com.opining.activities;
+package br.com.opining.view.activities;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -85,9 +85,6 @@ public class LoginActivity extends Activity implements OnFailureListener{
         callbackManager.onActivityResult(requestCode,resultCode,data);
     }
 
-
-
-
     public void doLogin(View view){
         enableForm(false);
         String email = editEmail.getText().toString();
@@ -123,9 +120,6 @@ public class LoginActivity extends Activity implements OnFailureListener{
         btnRedirectEnter.setEnabled(value);
         btnRedirectRegister.setEnabled(value);
     }
-
-
-
 
     public void doLoginWithFacebook(View view){
         LoginManager.getInstance().logInWithReadPermissions(this, Arrays.asList("public_profile", "email"));

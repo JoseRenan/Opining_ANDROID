@@ -18,6 +18,13 @@
         <item name="colorAccent">@color/colorAccentPink</item>
     </style>
 
+    <!-- Amber theme for the settings screens -->
+    <style name="Theme.Amber" parent="Theme.Main">
+        <item name="colorPrimary">@color/colorPrimaryAmber</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDarkAmber</item>
+        <item name="colorAccent">@color/colorAccentAmber</item>
+    </style>
+
     <style name="Theme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
 </resources>
