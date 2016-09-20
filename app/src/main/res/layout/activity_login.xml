@@ -133,7 +133,18 @@
                         android:id="@+id/btn_facebook"
                         android:layout_gravity="center_horizontal"
                         android:background="@drawable/com_facebook_favicon_white"
-                        android:layout_margin="10dp" />
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp" />
+
+                    <Button
+                        android:layout_width="32dp"
+                        android:layout_height="32dp"
+                        android:id="@+id/btn_twitter"
+                        android:background="@drawable/tw__composer_logo_white"
+                        android:elevation="0dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
+                        android:onClick="doLoginWithTwitter" />
                 </LinearLayout>
 
             </LinearLayout>

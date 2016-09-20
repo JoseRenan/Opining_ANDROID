@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Opining</string>
+
+    <!-- Auth strings -->
+    <string name="login">Login</string>
+    <string name="password">Password</string>
+    <string name="name">Name</string>
+    <string name="email">Email</string>
+    <string name="repeat_password">Repeat the password</string>
+    <string name="enter">Enter</string>
+    <string name="do_register">Sign-up</string>
+    <string name="logout">Exit</string>
+
+    <!-- Content description -->
+    <string name="opining_logo">Opining\'s Logo</string>
+
+    <!-- Screen strings -->
+    <string name="search">Search</string>
+    <string name="settings">Settings</string>
+    <string name="register">Register</string>
+    <string name="profile">Profile</string>
+    <string name="security">Security</string>
+    <string name="remove_account">Remove account</string>
+    <string name="contact">Contact us</string>
+    <string name="about">About</string>
+
+    <!-- Error strings -->
+    <string name="error">Opss! Something is wrong</string>
+    <string name="error_time_out">Could not connect to the server</string>
+    <string name="error_email">Invalid Email</string>
+    <string name="error_confirm_password">Passwords don\'t match</string>
+    <string name="error_password">Invalid Password</string>
+    <string name="error_name">Invalid Name</string>
+    <string name="error_credential">Senha incorreta ou inexistente</string>
+    <string name="error_inexist">Login Inexistente</string>
+    <string name="error_duplicate">This account already exists</string>
+
+    <string name="facebook_app_id">1001149219960156</string>
+
+</resources>

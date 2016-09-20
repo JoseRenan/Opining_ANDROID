@@ -3,6 +3,7 @@
     package="br.com.opining">
 
     <application
+        android:name=".view.activities.OpiningApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_opining"
         android:label="@string/app_name"
@@ -10,6 +11,11 @@
         android:theme="@style/Theme.Purple">
 
         <meta-data android:name="com.facebook.sdk.ApplicationId" android:value="@string/facebook_app_id"/>
+
+        <meta-data
+            android:name="io.fabric.ApiKey"
+            android:value="8ee931c5f1a03ec00256cc15a06d5ade92e0addb"
+            />
 
         <activity android:name="com.facebook.FacebookActivity"
             android:configChanges=
