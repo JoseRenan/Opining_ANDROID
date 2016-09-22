@@ -7,7 +7,6 @@ import android.support.annotation.NonNull;
 import com.google.firebase.auth.FirebaseAuth;
 
 import br.com.opining.view.activities.LoginActivity;
-
 /**
  * Created by juan on 17/09/16.
  */

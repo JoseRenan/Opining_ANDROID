@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Opining</string>
 
@@ -36,6 +37,5 @@
     <string name="error_duplicate">Essa conta já existe</string>
 
     <string name="facebook_app_id">1001149219960156</string>
-    <string name="error_twitter">Não foi possível logar com o twitter</string>
 
 </resources>

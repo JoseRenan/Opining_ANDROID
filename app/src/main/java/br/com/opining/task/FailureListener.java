@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.design.widget.Snackbar;
+import android.util.Log;
 import android.view.View;
 
 import com.google.android.gms.tasks.OnFailureListener;
@@ -27,6 +28,9 @@ public class FailureListener implements OnFailureListener {
 
     @Override
     public void onFailure(@NonNull Exception e) {
+
+        Log.e(this.toString(), e.getMessage());
+
         if (e instanceof FirebaseNetworkException){
             Snackbar.make(activity.findViewById(android.R.id.content), R.string.error_time_out, Snackbar.LENGTH_LONG).show();
         }else if(e instanceof FirebaseAuthInvalidCredentialsException){
