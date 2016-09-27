@@ -150,6 +150,7 @@ public class LoginActivity extends Activity implements OnFailureListener{
         LoginManager.getInstance().logInWithReadPermissions(this, Arrays.asList("public_profile", "email"));
     }
 
+    //Autoriza o usuário com o twitter
     public void doLoginWithTwitter(View view){
         twitterAuthClient = new TwitterAuthClient();
         twitterAuthClient.authorize(this, new Callback<TwitterSession>() {
@@ -168,7 +169,7 @@ public class LoginActivity extends Activity implements OnFailureListener{
         });
     }
 
-
+    //Recebe o token e autoriza no firebase de acordo com o provedor recebido
     public void acessLoginData(String provider, String... tokens){
         if (tokens != null
                 && tokens.length > 0
@@ -196,19 +197,4 @@ public class LoginActivity extends Activity implements OnFailureListener{
         enableForm(true);
     }
 
-
-
-
-    public class TwitterCallback extends Callback<TwitterSession>{
-
-        @Override
-        public void success(Result<TwitterSession> result) {
-
-        }
-
-        @Override
-        public void failure(TwitterException exception) {
-
-        }
-    }
 }
