@@ -28,6 +28,7 @@
     <!-- Error strings -->
     <string name="error">Ocorreu um erro ao tentar realizar essa ação.</string>
     <string name="error_time_out">Não foi possível se conectar com o servidor</string>
+    <string name="error_twitter">Não foi possível logar com o twitter</string>
     <string name="error_email">Email Inválido</string>
     <string name="error_confirm_password">Senhas não coincidem</string>
     <string name="error_password">Senha Inválida</string>
@@ -37,5 +38,8 @@
     <string name="error_duplicate">Essa conta já existe</string>
 
     <string name="facebook_app_id">1001149219960156</string>
+
+    <!-- Other strings -->
+    <string name="or">OU</string>
 
 </resources>

@@ -27,10 +27,11 @@
 
             <ImageView
                 android:layout_width="match_parent"
-                android:layout_height="65dp"
                 android:id="@+id/logo_opining"
-                android:src="@drawable/new_logo_opining_branco"
-                android:contentDescription="@string/opining_logo" />
+                android:src="@drawable/logo_opining_white"
+                android:contentDescription="@string/opining_logo"
+                android:layout_height="45dp"
+                android:layout_marginTop="15dp" />
 
             <LinearLayout
                 android:orientation="vertical"
@@ -43,7 +44,7 @@
                     android:layout_height="@dimen/edit_text_home_height"
                     android:paddingLeft="20dp"
                     android:paddingRight="20dp"
-                    android:inputType="textPersonName"
+                    android:inputType="textEmailAddress"
                     android:fontFamily="sans-serif-light"
                     android:background="@drawable/edit_text_radius_top"
                     android:hint="@string/login"
@@ -97,7 +98,7 @@
                         android:layout_height="wrap_content"
                         android:textAlignment="center"
                         android:textAppearance="?android:attr/textAppearanceSmall"
-                        android:text="OU"
+                        android:text="@string/or"
                         android:layout_marginLeft="20dp"
                         android:layout_marginRight="20dp"
                         android:id="@+id/lb_or"/>
@@ -132,7 +133,7 @@
                         android:onClick="doLoginWithFacebook"
                         android:id="@+id/btn_facebook"
                         android:layout_gravity="center_horizontal"
-                        android:background="@drawable/com_facebook_favicon_white"
+                        android:background="@drawable/com_facebook_button_icon"
                         android:layout_marginLeft="10dp"
                         android:layout_marginRight="10dp" />
 
@@ -141,7 +142,6 @@
                         android:layout_height="32dp"
                         android:id="@+id/btn_twitter"
                         android:background="@drawable/tw__composer_logo_white"
-                        android:elevation="0dp"
                         android:layout_marginLeft="10dp"
                         android:layout_marginRight="10dp"
                         android:onClick="doLoginWithTwitter" />

@@ -13,11 +13,11 @@
 
     <ImageView
         android:layout_width="match_parent"
-        android:layout_height="90dp"
         android:id="@+id/icon_splash"
-        android:src="@drawable/icon_splash"
+        android:src="@drawable/new_icon_splash"
         android:layout_centerVertical="true"
         android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_alignParentEnd="true"
+        android:layout_height="100dp" />
 
 </RelativeLayout>

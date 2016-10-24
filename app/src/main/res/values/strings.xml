@@ -38,4 +38,7 @@
     <string name="facebook_app_id">1001149219960156</string>
     <string name="error_twitter">Não foi possível logar com o twitter</string>
 
+    <!-- Other strings -->
+    <string name="or">OU</string>
+
 </resources>

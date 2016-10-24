@@ -12,7 +12,7 @@
     <ListView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:divider="@color/black_overlay"
+        android:divider="#37000000"
         android:dividerHeight="1dp"
         android:id="@+id/lst_settings"
         android:layout_gravity="center_horizontal" />
