@@ -3,6 +3,7 @@
 <resources>
 
     <color name="grey">#F9F9F9</color>
+    <color name="white">#FFF</color>
     <color name="black">#000</color>
     <color name="orange">#E64A19</color>
 
