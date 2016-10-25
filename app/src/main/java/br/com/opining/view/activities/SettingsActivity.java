@@ -15,6 +15,7 @@ import java.util.ArrayList;
 import java.util.Set;
 
 import br.com.opining.R;
+import br.com.opining.helpers.AndroidHelper;
 import br.com.opining.view.adapters.ListItem;
 import br.com.opining.view.adapters.SettingsListAdapter;
 
@@ -46,22 +47,30 @@ public class SettingsActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
 
+                Intent intent;
+
                 switch (position) {
                     case 0:
+                        intent = new Intent(SettingsActivity.this, EditProfileActivity.class);
+                        SettingsActivity.this.startActivity(intent);
                         break;
 
                     case 1:
-                        Intent intent = new Intent(SettingsActivity.this, SecurityActivity.class);
+                        intent = new Intent(SettingsActivity.this, SecurityActivity.class);
                         SettingsActivity.this.startActivity(intent);
                         break;
 
                     case 2:
+                        AndroidHelper.showToast(SettingsActivity.this, "Esta opção do menu ainda não foi implementada");
                         break;
 
                     case 3:
+                        AndroidHelper.showToast(SettingsActivity.this, "Esta opção do menu ainda não foi implementada");
                         break;
 
                     case 4:
+                        intent = new Intent(SettingsActivity.this, AboutActivity.class);
+                        SettingsActivity.this.startActivity(intent);
                         break;
                 }
             }

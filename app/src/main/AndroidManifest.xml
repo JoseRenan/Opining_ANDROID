@@ -43,6 +43,18 @@
             android:name=".view.activities.SettingsActivity"
             android:parentActivityName=".view.activities.HomeActivity"
             android:theme="@style/Theme.Amber" />
+        <activity
+            android:name=".view.activities.SecurityActivity"
+            android:parentActivityName=".view.activities.SettingsActivity"
+            android:theme="@style/Theme.Amber" />
+        <activity
+            android:name=".view.activities.EditProfileActivity"
+            android:parentActivityName=".view.activities.SettingsActivity"
+            android:theme="@style/Theme.Amber" />
+        <activity
+            android:name=".view.activities.AboutActivity"
+            android:parentActivityName=".view.activities.SettingsActivity"
+            android:theme="@style/Theme.Amber" />
 
         <service android:name=".services.FirebaseMessagingService">
             <intent-filter>
@@ -55,10 +67,6 @@
             </intent-filter>
         </service>
 
-        <activity
-            android:name=".view.activities.SecurityActivity"
-            android:theme="@style/Theme.Amber"
-            android:parentActivityName=".view.activities.SettingsActivity"/>
     </application>
 
 </manifest>

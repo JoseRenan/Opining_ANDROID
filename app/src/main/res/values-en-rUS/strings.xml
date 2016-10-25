@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Opining</string>
+    <string name="app_version">0.0.1-ALPHA</string>
 
     <!-- Auth strings -->
     <string name="login">Login</string>
@@ -29,6 +30,7 @@
     <string name="repeat_new_password">Repeat the new password</string>
     <string name="disconnect_all">Disconnect all devices</string>
     <string name="update_password">Update password</string>
+    <string name="update_profile">Update profile</string>
 
     <!-- Error strings -->
     <string name="error">Opss! Something is wrong</string>
