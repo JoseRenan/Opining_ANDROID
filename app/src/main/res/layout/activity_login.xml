@@ -48,7 +48,9 @@
                     android:fontFamily="sans-serif-light"
                     android:background="@drawable/edit_text_radius_top"
                     android:hint="@string/login"
-                    android:id="@+id/edt_login" />
+                    android:id="@+id/edt_login"
+                    android:textColorHint="@color/invisibleWhite"
+                    android:textColor="@color/white" />
 
                 <EditText
                     android:layout_marginTop="@dimen/edit_text_margin"
@@ -60,7 +62,9 @@
                     android:background="@drawable/edit_text_radius_bottom"
                     android:hint="@string/password"
                     android:inputType="textPassword"
-                    android:id="@+id/edt_password" />
+                    android:id="@+id/edt_password"
+                    android:textColorHint="@color/invisibleWhite"
+                    android:textColor="@color/white" />
 
             </LinearLayout>
 
@@ -77,7 +81,8 @@
                     android:fontFamily="sans-serif-light"
                     android:background="@drawable/button_invisible_black"
                     android:onClick="doLogin"
-                    android:id="@+id/btn_enter" />
+                    android:id="@+id/btn_enter"
+                    android:textColor="@color/white" />
 
                 <LinearLayout
                     android:orientation="horizontal"
@@ -101,7 +106,8 @@
                         android:text="@string/or"
                         android:layout_marginLeft="20dp"
                         android:layout_marginRight="20dp"
-                        android:id="@+id/lb_or"/>
+                        android:id="@+id/lb_or"
+                        android:textColor="@color/white" />
 
                     <View
                         android:layout_width="match_parent"
@@ -118,7 +124,8 @@
                     android:fontFamily="sans-serif-light"
                     android:text="@string/do_register"
                     android:background="@drawable/button_invisible_black"
-                    android:id="@+id/btn_register_redirect" />
+                    android:id="@+id/btn_register_redirect"
+                    android:textColor="@color/white" />
 
                 <LinearLayout
                     android:orientation="horizontal"

@@ -23,6 +23,11 @@
     <string name="remove_account">Desativar conta</string>
     <string name="contact">Contate-nos</string>
     <string name="about">Sobre o aplicativo</string>
+    <string name="current_password">Senha atual</string>
+    <string name="new_password">Nova senha</string>
+    <string name="repeat_new_password">Repita a nova senha</string>
+    <string name="disconnect_all">Desconectar de todos os dispositivos</string>
+    <string name="update_password">Atualizar senha</string>
 
     <!-- Error strings -->
     <string name="error">Ocorreu um erro ao tentar realizar essa ação.</string>

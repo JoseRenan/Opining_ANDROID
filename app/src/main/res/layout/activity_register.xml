@@ -33,8 +33,8 @@
                 android:text="@string/do_register"
                 android:textSize="30sp"
                 android:layout_marginBottom="@dimen/activity_vertical_margin"
-                android:fontFamily="sans-serif-thin"
-                android:textColor="@android:color/white"
+                android:fontFamily="sans-serif-light"
+                android:textColor="@color/white"
                 android:id="@+id/lb_register"
                 android:layout_centerHorizontal="true"
                 android:layout_gravity="center_horizontal"
@@ -49,7 +49,9 @@
                 android:fontFamily="sans-serif-light"
                 android:background="@drawable/edit_text_radius_top"
                 android:hint="@string/name"
-                android:id="@+id/edt_name" />
+                android:id="@+id/edt_name"
+                android:textColor="@color/white"
+                android:textColorHint="@color/invisibleWhite" />
 
             <EditText
                 android:layout_width="match_parent"
@@ -61,7 +63,9 @@
                 android:background="@drawable/edit_text_radius_middle"
                 android:inputType="textEmailAddress"
                 android:hint="@string/email"
-                android:id="@+id/edt_email" />
+                android:id="@+id/edt_email"
+                android:textColor="@color/white"
+                android:textColorHint="@color/invisibleWhite" />
 
             <EditText
                 android:layout_width="match_parent"
@@ -73,7 +77,9 @@
                 android:background="@drawable/edit_text_radius_middle"
                 android:inputType="textPassword"
                 android:hint="@string/password"
-                android:id="@+id/edt_password" />
+                android:id="@+id/edt_password"
+                android:textColorHint="@color/invisibleWhite"
+                android:textColor="@color/white" />
 
             <EditText
                 android:layout_marginTop="4dp"
@@ -86,7 +92,9 @@
                 android:hint="@string/repeat_password"
                 android:inputType="textPassword"
                 android:ems="10"
-                android:id="@+id/edt_repeat_password" />
+                android:id="@+id/edt_repeat_password"
+                android:textColor="@color/white"
+                android:textColorHint="@color/invisibleWhite" />
 
             <Button
                 android:layout_width="match_parent"
@@ -96,7 +104,8 @@
                 android:fontFamily="sans-serif-light"
                 android:background="@drawable/button_invisible_black"
                 android:id="@+id/btn_register"
-                android:onClick="doRegister"/>
+                android:onClick="doRegister"
+                android:textColor="@color/white" />
 
         </LinearLayout>
     </ScrollView>

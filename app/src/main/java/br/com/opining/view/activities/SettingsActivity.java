@@ -1,14 +1,18 @@
 package br.com.opining.view.activities;
 
+import android.content.Intent;
 import android.support.v4.app.NavUtils;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
+import java.util.Set;
 
 import br.com.opining.R;
 import br.com.opining.view.adapters.ListItem;
@@ -36,6 +40,32 @@ public class SettingsActivity extends AppCompatActivity {
         SettingsListAdapter adapter = new SettingsListAdapter(this, generateItems());
         listSettings = (ListView) findViewById(R.id.lst_settings);
         listSettings.setAdapter(adapter);
+
+        listSettings.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
+
+                switch (position) {
+                    case 0:
+                        break;
+
+                    case 1:
+                        Intent intent = new Intent(SettingsActivity.this, SecurityActivity.class);
+                        SettingsActivity.this.startActivity(intent);
+                        break;
+
+                    case 2:
+                        break;
+
+                    case 3:
+                        break;
+
+                    case 4:
+                        break;
+                }
+            }
+        });
     }
 
     public ArrayList<ListItem> generateItems() {

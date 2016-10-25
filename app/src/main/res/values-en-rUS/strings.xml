@@ -24,6 +24,11 @@
     <string name="remove_account">Remove account</string>
     <string name="contact">Contact us</string>
     <string name="about">About</string>
+    <string name="current_password">Current password</string>
+    <string name="new_password">New password</string>
+    <string name="repeat_new_password">Repeat the new password</string>
+    <string name="disconnect_all">Disconnect all devices</string>
+    <string name="update_password">Update password</string>
 
     <!-- Error strings -->
     <string name="error">Opss! Something is wrong</string>
