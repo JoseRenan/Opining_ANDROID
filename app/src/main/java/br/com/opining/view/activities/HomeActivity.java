@@ -53,7 +53,7 @@ public class HomeActivity extends AppCompatActivity {
 
             @Override
             public void onClick(View view) {
-                AndroidHelper.showSnackbar(HomeActivity.this, "Briiinca :v");
+                AndroidHelper.showSnackbar(HomeActivity.this, "Criação de debates ainda não implementada. Debates apresentados são meramente ilustrativos.");
             }
         });
     }
