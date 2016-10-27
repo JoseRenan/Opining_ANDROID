@@ -172,8 +172,7 @@ public class LoginActivity extends Activity implements OnFailureListener{
     //Recebe o token e autoriza no firebase de acordo com o provedor recebido
     public void acessLoginData(String provider, String... tokens){
         if (tokens != null
-                && tokens.length > 0
-                && tokens[1] != null){
+                && tokens.length >= 1){
 
             AuthCredential credential = null;
             if (provider.equals("twitter")){
