@@ -171,6 +171,8 @@ public class LoginActivity extends Activity implements OnFailureListener{
 
     //Recebe o token e autoriza no firebase de acordo com o provedor recebido
     public void acessLoginData(String provider, String... tokens){
+        enableForm(false);
+
         if (tokens != null
                 && tokens.length >= 1){
 
@@ -185,7 +187,13 @@ public class LoginActivity extends Activity implements OnFailureListener{
             Log.i(this.toString(), "credenciando usuário com firebase");
             firebaseAuth.signInWithCredential(credential)
                     .addOnSuccessListener(new LoginListener(LoginActivity.this))
-                    .addOnFailureListener(new FailureListener(LoginActivity.this));
+                    .addOnFailureListener(new FailureListener(LoginActivity.this))
+                    .addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception e) {
+                            LoginActivity.this.enableForm(true);
+                        }
+                    });
         }else{
             firebaseAuth.signOut();
         }
