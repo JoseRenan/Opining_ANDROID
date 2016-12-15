@@ -47,5 +47,7 @@
 
     <!-- Other strings -->
     <string name="or">OU</string>
+    <string name="cancel">Cancelar</string>
+    <string name="send">Enviar</string>
 
 </resources>

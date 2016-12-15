@@ -14,7 +14,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.UserInfo;
 
 import br.com.opining.R;
-import br.com.opining.helpers.AndroidHelper;
+import br.com.opining.view.dialog.CreateRoomDialogFragment;
 
 public class HomeActivity extends AppCompatActivity {
 
@@ -53,7 +53,7 @@ public class HomeActivity extends AppCompatActivity {
 
             @Override
             public void onClick(View view) {
-                AndroidHelper.showSnackbar(HomeActivity.this, "Criação de debates ainda não implementada. Debates apresentados são meramente ilustrativos.");
+                new CreateRoomDialogFragment().show(getSupportFragmentManager(), "createRoom");
             }
         });
     }
