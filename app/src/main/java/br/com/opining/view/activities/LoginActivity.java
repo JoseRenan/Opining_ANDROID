@@ -9,6 +9,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.FrameLayout;
 
 import com.facebook.CallbackManager;
 import com.facebook.FacebookCallback;
@@ -49,6 +50,7 @@ public class LoginActivity extends Activity implements OnFailureListener{
     private EditText editPassword;
     private CallbackManager callbackManager;
     private TwitterAuthClient twitterAuthClient;
+    private FrameLayout frameLoading;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,6 +61,7 @@ public class LoginActivity extends Activity implements OnFailureListener{
         firebaseAuth = FirebaseAuth.getInstance();
 
         //Inicialização do layout
+        frameLoading = (FrameLayout) findViewById(R.id.lt_frame_loading);
         btnRedirectEnter = (Button) findViewById(R.id.btn_enter);
         btnRedirectRegister = (Button) findViewById(R.id.btn_register_redirect);
         btnRedirectRegister.setOnClickListener(new View.OnClickListener() {
@@ -120,6 +123,7 @@ public class LoginActivity extends Activity implements OnFailureListener{
     }
 
     private void enableForm(boolean value){
+        frameLoading.setVisibility(value? View.GONE : View.VISIBLE);
         editPassword.setEnabled(value);
         editEmail.setEnabled(value);
         btnRedirectEnter.setEnabled(value);
