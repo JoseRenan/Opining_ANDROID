@@ -9,6 +9,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.FrameLayout;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -26,6 +27,7 @@ public class RegisterActivity extends AppCompatActivity implements OnCompleteLis
     private EditText edtPassword;
     private EditText edtConfirmPassword;
     private Button btnRegister;
+    private FrameLayout frameLoading;
 
     private FirebaseAuth firebaseAuth;
 
@@ -42,6 +44,7 @@ public class RegisterActivity extends AppCompatActivity implements OnCompleteLis
         getSupportActionBar().setDisplayShowTitleEnabled(false);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
+        frameLoading = (FrameLayout) findViewById(R.id.lt_frame_loading);
         btnRegister = (Button) findViewById(R.id.btn_register);
         edtName = (EditText) findViewById(R.id.edt_name);
         edtEmail = (EditText) findViewById(R.id.edt_email);
@@ -114,6 +117,7 @@ public class RegisterActivity extends AppCompatActivity implements OnCompleteLis
     }
 
     private void enableForm(boolean value){
+        frameLoading.setVisibility(value? View.GONE : View.VISIBLE);
         edtEmail.setEnabled(value);
         edtPassword.setEnabled(value);
         edtName.setEnabled(value);
