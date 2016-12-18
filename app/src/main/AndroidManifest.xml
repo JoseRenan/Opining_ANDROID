@@ -24,7 +24,7 @@
             android:theme="@android:style/Theme.Translucent.NoTitleBar"
             tools:replace="android:theme" />
         <activity
-            android:name=".view.activities.SplashScreen"
+            android:name=".mvp.splash.SplashActivity"
             android:theme="@style/Theme.Pink">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -32,7 +32,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".view.activities.LoginActivity" />
+        <activity android:name=".mvp.login.LoginActivity" />
         <activity
             android:name=".view.activities.RegisterActivity"
             android:parentActivityName=".view.activities.LoginActivity" />
