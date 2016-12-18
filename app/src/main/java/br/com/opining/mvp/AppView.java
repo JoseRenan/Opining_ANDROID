@@ -1,12 +1,10 @@
 package br.com.opining.mvp;
 
 import android.content.Context;
-
-/**
- * Created by José Renan on 17/12/2016.
- */
+import android.support.v7.app.AppCompatActivity;
 
 public interface AppView {
-    public Context getContext();
-    public Context getAppContext();
+    Context getContext();
+    Context getAppContext();
+    AppCompatActivity get();
 }

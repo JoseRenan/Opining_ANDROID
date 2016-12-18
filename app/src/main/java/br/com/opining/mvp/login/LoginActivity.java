@@ -11,8 +11,8 @@ import android.widget.FrameLayout;
 
 import br.com.opining.R;
 import br.com.opining.helpers.AndroidHelper;
-import br.com.opining.view.activities.HomeActivity;
-import br.com.opining.view.activities.RegisterActivity;
+import br.com.opining.mvp.register.RegisterActivity;
+import br.com.opining.mvp.home.HomeActivity;
 
 public class LoginActivity extends AppCompatActivity implements LoginView {
 
@@ -47,16 +47,18 @@ public class LoginActivity extends AppCompatActivity implements LoginView {
     }
 
     public void doLogin(View view) {
-        frameLoading.setVisibility(View.VISIBLE);
+        startLoading(true);
         mPresenter.doLoginWithEmail(editEmail.getText().toString(), editPassword.getText().toString());
     }
 
     public void doLoginWithFacebook(View view){
+        startLoading(true);
         mPresenter.doLoginWithFacebook();
     }
 
     public void doLoginWithTwitter(View view){
-        mPresenter.doLoginWithFacebook();
+        startLoading(true);
+        mPresenter.doLoginWithTwitter();
     }
 
     @Override
@@ -66,20 +68,20 @@ public class LoginActivity extends AppCompatActivity implements LoginView {
     }
 
     @Override
-    public void showLoginError(String msg) {
-        frameLoading.setVisibility(View.GONE);
+    public void notifyLoginError(String msg) {
+        startLoading(false);
         AndroidHelper.showSnackbar(LoginActivity.this, msg);
     }
 
     @Override
     public void showInvalidPasswordError(String msg) {
-        frameLoading.setVisibility(View.GONE);
+        startLoading(false);
         editPassword.setError(msg);
     }
 
     @Override
     public void showInvalidEmailError(String msg) {
-        frameLoading.setVisibility(View.GONE);
+        startLoading(false);
         editEmail.setError(msg);
     }
 
@@ -98,5 +100,24 @@ public class LoginActivity extends AppCompatActivity implements LoginView {
     @Override
     public Context getAppContext() {
         return getApplicationContext();
+    }
+
+    @Override
+    public AppCompatActivity get() {
+        return this;
+    }
+
+    private void startLoading(boolean value) {
+        frameLoading.setVisibility(!value? View.GONE : View.VISIBLE);
+        editPassword.setEnabled(!value);
+        editEmail.setEnabled(!value);
+        btnRedirectEnter.setEnabled(!value);
+        btnRedirectRegister.setEnabled(!value);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        mPresenter.onActivityResult(requestCode, resultCode, data);
     }
 }

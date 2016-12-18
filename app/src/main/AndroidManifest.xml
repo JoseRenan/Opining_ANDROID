@@ -34,15 +34,15 @@
         </activity>
         <activity android:name=".mvp.login.LoginActivity" />
         <activity
-            android:name=".view.activities.RegisterActivity"
-            android:parentActivityName=".view.activities.LoginActivity" />
+            android:name=".mvp.register.RegisterActivity"
+            android:parentActivityName=".mvp.login.LoginActivity" />
         <activity
-            android:name=".view.activities.HomeActivity"
+            android:name=".mvp.home.HomeActivity"
             android:theme="@style/Theme.Pink"/>
 
         <activity
             android:name=".view.activities.SettingsActivity"
-            android:parentActivityName=".view.activities.HomeActivity"
+            android:parentActivityName=".mvp.home.HomeActivity"
             android:theme="@style/Theme.Amber" />
         <activity
             android:name=".view.activities.SecurityActivity"

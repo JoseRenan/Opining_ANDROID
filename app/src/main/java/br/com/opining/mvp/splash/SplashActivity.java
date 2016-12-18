@@ -3,22 +3,14 @@ package br.com.opining.mvp.splash;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Handler;
-import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 
-import com.google.android.gms.tasks.OnFailureListener;
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
-
 import br.com.opining.R;
-import br.com.opining.task.RetrieveListener;
 import br.com.opining.mvp.login.LoginActivity;
-import br.com.opining.view.activities.HomeActivity;
+import br.com.opining.mvp.home.HomeActivity;
 
 public class SplashActivity extends AppCompatActivity implements SplashView{
 
-    private FirebaseAuth firebaseAuth;
     private SplashPresenter mPresenter;
 
     @Override
@@ -62,5 +54,10 @@ public class SplashActivity extends AppCompatActivity implements SplashView{
     @Override
     public Context getAppContext() {
         return getApplicationContext();
+    }
+
+    @Override
+    public AppCompatActivity get() {
+        return this;
     }
 }

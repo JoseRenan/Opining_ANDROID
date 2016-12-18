@@ -1,13 +1,12 @@
 package br.com.opining.mvp.login;
 
+import android.content.Intent;
+
 import br.com.opining.mvp.AppPresenter;
 
-/**
- * Created by José Renan on 18/12/2016.
- */
-
 public interface LoginPresenter extends AppPresenter {
-    public void doLoginWithEmail(String email, String password);
-    public void doLoginWithFacebook();
-    public void doLoginWithTwitter();
+    void doLoginWithEmail(String email, String password);
+    void doLoginWithFacebook();
+    void doLoginWithTwitter();
+    void onActivityResult(int requestCode, int resultCode, Intent data);
 }
