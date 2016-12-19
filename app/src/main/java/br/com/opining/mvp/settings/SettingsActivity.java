@@ -1,9 +1,9 @@
-package br.com.opining.view.activities;
+package br.com.opining.mvp.settings;
 
 import android.content.Intent;
+import android.os.Bundle;
 import android.support.v4.app.NavUtils;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
@@ -12,12 +12,12 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
-import java.util.Set;
 
 import br.com.opining.R;
 import br.com.opining.helpers.AndroidHelper;
-import br.com.opining.view.adapters.ListItem;
-import br.com.opining.view.adapters.SettingsListAdapter;
+import br.com.opining.mvp.settings.profile.EditProfileActivity;
+import br.com.opining.mvp.settings.security.SecurityActivity;
+import br.com.opining.model.ListItem;
 
 public class SettingsActivity extends AppCompatActivity {
 

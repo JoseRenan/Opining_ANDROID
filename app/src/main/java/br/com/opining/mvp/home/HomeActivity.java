@@ -12,8 +12,8 @@ import android.view.View;
 
 import br.com.opining.R;
 import br.com.opining.mvp.login.LoginActivity;
-import br.com.opining.view.activities.SettingsActivity;
-import br.com.opining.view.dialog.CreateRoomDialogFragment;
+import br.com.opining.mvp.settings.SettingsActivity;
+import br.com.opining.mvp.home.create.room.CreateRoomDialogFragment;
 
 public class HomeActivity extends AppCompatActivity implements HomeView {
 

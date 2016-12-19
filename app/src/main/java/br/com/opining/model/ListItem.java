@@ -1,15 +1,12 @@
-package br.com.opining.view.adapters;
+package br.com.opining.model;
 
-/**
- * Created by José Renan on 18/09/2016.
- */
 public class ListItem {
 
     // Resource id
     private int icon;
     private int title;
 
-    public ListItem (int icon, int title) {
+    public ListItem(int icon, int title) {
 
         super();
 

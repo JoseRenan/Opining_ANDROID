@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.support.v4.app.NavUtils;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
@@ -26,6 +27,7 @@ public class RegisterActivity extends AppCompatActivity implements RegisterView 
     private Button btnRegister;
     private FrameLayout frameLoading;
     private RegisterPresenter mPresenter;
+    private boolean isLoading;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +40,7 @@ public class RegisterActivity extends AppCompatActivity implements RegisterView 
         getSupportActionBar().setDisplayShowTitleEnabled(false);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
+        isLoading = false;
         mPresenter = new RegisterPresenterImpl(this);
         frameLoading = (FrameLayout) findViewById(R.id.lt_frame_loading);
         btnRegister = (Button) findViewById(R.id.btn_register);
@@ -57,10 +60,11 @@ public class RegisterActivity extends AppCompatActivity implements RegisterView 
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case android.R.id.home:
-                NavUtils.navigateUpFromSameTask(this);
+                if (!isLoading)
+                    NavUtils.navigateUpFromSameTask(this);
                 break;
         }
-        return super.onOptionsItemSelected(item);
+        return true;
     }
 
     @Override
@@ -101,6 +105,7 @@ public class RegisterActivity extends AppCompatActivity implements RegisterView 
     }
 
     private void startLoading(boolean value){
+        isLoading = value;
         frameLoading.setVisibility(!value? View.GONE : View.VISIBLE);
         edtEmail.setEnabled(!value);
         edtPassword.setEnabled(!value);

@@ -41,20 +41,20 @@
             android:theme="@style/Theme.Pink"/>
 
         <activity
-            android:name=".view.activities.SettingsActivity"
+            android:name=".mvp.settings.SettingsActivity"
             android:parentActivityName=".mvp.home.HomeActivity"
             android:theme="@style/Theme.Amber" />
         <activity
-            android:name=".view.activities.SecurityActivity"
-            android:parentActivityName=".view.activities.SettingsActivity"
+            android:name=".mvp.settings.security.SecurityActivity"
+            android:parentActivityName=".mvp.settings.SettingsActivity"
             android:theme="@style/Theme.Amber" />
         <activity
-            android:name=".view.activities.EditProfileActivity"
-            android:parentActivityName=".view.activities.SettingsActivity"
+            android:name=".mvp.settings.profile.EditProfileActivity"
+            android:parentActivityName=".mvp.settings.SettingsActivity"
             android:theme="@style/Theme.Amber" />
         <activity
-            android:name=".view.activities.AboutActivity"
-            android:parentActivityName=".view.activities.SettingsActivity"
+            android:name=".mvp.settings.AboutActivity"
+            android:parentActivityName=".mvp.settings.SettingsActivity"
             android:theme="@style/Theme.Amber" />
 
         <service android:name=".services.FirebaseMessagingService">

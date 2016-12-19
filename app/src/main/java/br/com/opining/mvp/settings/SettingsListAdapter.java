@@ -1,4 +1,4 @@
-package br.com.opining.view.adapters;
+package br.com.opining.mvp.settings;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -11,10 +11,8 @@ import android.widget.TextView;
 import java.util.ArrayList;
 
 import br.com.opining.R;
+import br.com.opining.model.ListItem;
 
-/**
- * Created by José Renan on 18/09/2016.
- */
 public class SettingsListAdapter extends ArrayAdapter<ListItem> {
 
     private final Context context;

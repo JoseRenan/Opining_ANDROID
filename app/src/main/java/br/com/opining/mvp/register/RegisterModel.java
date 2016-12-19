@@ -45,7 +45,6 @@ public class RegisterModel implements UserRegister, OnSuccessListener, OnFailure
     @Override
     public void onSuccess(Object o) {
         updateProfileAndAddToDatabase();
-        resgitesrListener.onRegisterSuccessful();
     }
 
     private void updateProfileAndAddToDatabase() {
@@ -63,6 +62,7 @@ public class RegisterModel implements UserRegister, OnSuccessListener, OnFailure
                     DatabaseReference dbRef = FirebaseDatabase.getInstance().getReference();
                     dbRef.child("users").child(fUser.getUid()).setValue(user);
                     Log.d(TAG, "User profile updated.");
+                    resgitesrListener.onRegisterSuccessful();
                 }
             }
         });
