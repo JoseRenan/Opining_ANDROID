@@ -5,7 +5,7 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="br.com.opining.view.activities.EditProfileActivity">
+    tools:context="br.com.opining.mvp.settings.profile.EditProfileActivity">
 
     <include
         android:id="@+id/tb_main"
@@ -30,7 +30,8 @@
             <android.support.design.widget.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_marginTop="@dimen/activity_vertical_margin"
-                android:layout_height="match_parent">
+                android:layout_height="match_parent"
+                android:id="@+id/tl_name">
 
                 <EditText
                     android:id="@+id/edt_name"
@@ -43,7 +44,8 @@
             <android.support.design.widget.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_marginTop="@dimen/activity_vertical_margin"
-                android:layout_height="match_parent">
+                android:layout_height="match_parent"
+                android:id="@+id/tl_email">
 
                 <EditText
                     android:id="@+id/edt_email"

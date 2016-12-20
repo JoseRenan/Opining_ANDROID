@@ -4,7 +4,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:background="@color/colorBackgroundPurple"
-    tools:context=".view.activities.LoginActivity"
+    tools:context=".mvp.login.LoginActivity"
     style="@style/Theme.Purple"
     android:layout_width="match_parent"
     android:layout_height="match_parent">

@@ -1,6 +1,6 @@
 <resources>
-    <string name="app_name">Opining</string>
-    <string name="app_version">0.0.1-ALPHA</string>
+    <string name="app_name" translatable="false">Opining</string>
+    <string name="app_version" translatable="false">0.0.1-ALPHA</string>
 
     <!-- Auth strings -->
     <string name="login">Login</string>
@@ -34,15 +34,17 @@
     <!-- Error strings -->
     <string name="error">Ocorreu um erro ao tentar realizar essa ação.</string>
     <string name="error_time_out">Não foi possível se conectar com o servidor</string>
-    <string name="error_email">Email Inválido</string>
+    <string name="error_email_empty">Digite um email</string>
+    <string name="error_email">Email inválido</string>
     <string name="error_confirm_password">Senhas não coincidem</string>
-    <string name="error_password">Senha Inválida</string>
-    <string name="error_name">Nome Inválido</string>
+    <string name="error_password">Senha inválida</string>
+    <string name="error_password_empty">Digite uma senha</string>
+    <string name="error_name">Nome inválido</string>
     <string name="error_credential">Senha incorreta ou inexistente</string>
-    <string name="error_inexist">Login Inexistente</string>
+    <string name="error_inexist">Email inexistente</string>
     <string name="error_duplicate">Essa conta já existe</string>
 
-    <string name="facebook_app_id">1001149219960156</string>
+    <string name="facebook_app_id" translatable="false">1001149219960156</string>
     <string name="error_twitter">Não foi possível logar com o twitter</string>
 
     <!-- Other strings -->

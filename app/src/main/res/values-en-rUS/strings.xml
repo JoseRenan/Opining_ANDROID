@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Opining</string>
-    <string name="app_version">0.0.1-ALPHA</string>
 
     <!-- Auth strings -->
     <string name="login">Login</string>
@@ -44,9 +42,11 @@
     <string name="error_inexist">Login Inexistente</string>
     <string name="error_duplicate">This account already exists</string>
 
-    <string name="facebook_app_id">1001149219960156</string>
-
     <!-- Other strings -->
     <string name="or">OR</string>
+    <string name="cancel">Cancel</string>
+    <string name="send">Send</string>
+    <string name="error_email_empty">Type an email</string>
+    <string name="error_password_empty">Type a password</string>
 
 </resources>
