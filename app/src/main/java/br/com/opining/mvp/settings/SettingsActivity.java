@@ -17,7 +17,7 @@ import br.com.opining.R;
 import br.com.opining.helpers.AndroidHelper;
 import br.com.opining.mvp.settings.profile.EditProfileActivity;
 import br.com.opining.mvp.settings.security.SecurityActivity;
-import br.com.opining.model.ListItem;
+import br.com.opining.domain.ListItem;
 
 public class SettingsActivity extends AppCompatActivity {
 

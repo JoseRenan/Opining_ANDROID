@@ -1,4 +1,4 @@
-package br.com.opining.view.activities;
+package br.com.opining;
 
 import android.app.Application;
 

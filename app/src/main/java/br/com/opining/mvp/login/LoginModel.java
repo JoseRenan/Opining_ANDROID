@@ -33,7 +33,7 @@ import java.util.Arrays;
 
 import br.com.opining.R;
 import br.com.opining.helpers.FirebaseUserHelper;
-import br.com.opining.model.User;
+import br.com.opining.domain.User;
 
 public class LoginModel implements Authenticator, OnFailureListener, OnSuccessListener {
 

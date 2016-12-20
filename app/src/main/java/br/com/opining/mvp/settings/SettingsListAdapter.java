@@ -11,7 +11,7 @@ import android.widget.TextView;
 import java.util.ArrayList;
 
 import br.com.opining.R;
-import br.com.opining.model.ListItem;
+import br.com.opining.domain.ListItem;
 
 public class SettingsListAdapter extends ArrayAdapter<ListItem> {
 

@@ -7,7 +7,7 @@ import com.google.firebase.auth.FirebaseAuthUserCollisionException;
 
 import br.com.opining.R;
 import br.com.opining.helpers.ValidatorHelper;
-import br.com.opining.model.User;
+import br.com.opining.domain.User;
 
 public class RegisterPresenterImpl implements RegisterPresenter, UserRegister.OnRegisterListener {
 

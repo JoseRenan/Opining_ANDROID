@@ -1,6 +1,6 @@
 package br.com.opining.mvp.register;
 
-import br.com.opining.model.User;
+import br.com.opining.domain.User;
 
 public interface UserRegister {
 

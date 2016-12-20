@@ -11,7 +11,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 import br.com.opining.helpers.FirebaseUserHelper;
-import br.com.opining.model.User;
+import br.com.opining.domain.User;
 
 public class EditProfileModel implements ProfileEditor {
 
