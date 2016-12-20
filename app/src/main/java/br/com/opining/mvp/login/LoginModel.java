@@ -77,7 +77,10 @@ public class LoginModel implements Authenticator, OnFailureListener, OnSuccessLi
             }
 
             @Override
-            public void onCancel() {}
+            public void onCancel() {
+                //TODO Create exception to cancelled login
+                loginListener.onLoginError(new Exception());
+            }
 
             @Override
             public void onError(FacebookException error) {
