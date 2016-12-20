@@ -11,6 +11,7 @@ public class EditProfilePresenterImpl implements EditProfilePresenter, ProfileEd
     public EditProfilePresenterImpl(EditProfileView mView) {
         this.mModel = new EditProfileModel(this);
         this.mView = mView;
+        mModel.loadActualNameAndEmail();
     }
 
     @Override
@@ -48,11 +49,17 @@ public class EditProfilePresenterImpl implements EditProfilePresenter, ProfileEd
     @Override
     public void onUpdadeSuccessful() {
         mView.notifySuccessfulEdit();
+        mModel.loadActualNameAndEmail();
     }
 
     @Override
     public void onUpdateError(Exception e) {
         //TODO catch exceptions received
         mView.notifyErrorEdit(mView.get().getString(R.string.error));
+    }
+
+    @Override
+    public void onLoadActualNameAndEmail(String name, String email) {
+        mView.setActualNameAndEmail(name, email);
     }
 }

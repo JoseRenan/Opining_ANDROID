@@ -2,7 +2,6 @@ package br.com.opining.mvp.settings.profile;
 
 import android.net.Uri;
 import android.support.annotation.NonNull;
-import android.util.Log;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -27,7 +26,7 @@ public class EditProfileModel implements ProfileEditor {
     @Override
     public void doUpdate(String newEmail, String newName) {
         //TODO update the email
-        final FirebaseUser fUser = FirebaseUserHelper.getCurrentFirebaseUser();
+        FirebaseUser fUser = FirebaseUserHelper.getCurrentFirebaseUser();
         Uri uri = fUser.getPhotoUrl();
         final User user = new User(newName, fUser.getEmail(), uri == null? null : uri.toString());
 
@@ -35,20 +34,21 @@ public class EditProfileModel implements ProfileEditor {
                 .setDisplayName(newName)
                 .build();
 
-        fUser.updateProfile(profileUpdates)
-                .addOnCompleteListener(new OnCompleteListener<Void>() {
-                    @Override
-                    public void onComplete(@NonNull Task<Void> task) {
-                        if (task.isSuccessful()) {
-                            DatabaseReference dbRef = FirebaseDatabase.getInstance().getReference();
-                            dbRef.child("users").child(fUser.getUid()).setValue(user);
-                            editorListener.onUpdadeSuccessful();
-                            Log.d(TAG, "User profile updated.");
-                        } else {
-                            //TODO change to onFailure and onSuccessful to receive firebase exceptions
-                            editorListener.onUpdateError(new Exception());
-                        }
-                    }
-                });
+        FirebaseUserHelper.updateUser(fUser, profileUpdates, new OnCompleteListener<Void>() {
+            @Override
+            public void onComplete(@NonNull Task<Void> task) {
+                if (task.isSuccessful()) {
+                    DatabaseReference dbRef = FirebaseDatabase.getInstance().getReference();
+                    dbRef.child("users").child(FirebaseUserHelper.getCurrentFirebaseUser().getUid()).setValue(user);
+                    editorListener.onUpdadeSuccessful();
+                }
+            }
+        });
+    }
+
+    @Override
+    public void loadActualNameAndEmail() {
+        FirebaseUser user = FirebaseUserHelper.getCurrentFirebaseUser();
+        editorListener.onLoadActualNameAndEmail(user.getDisplayName(), user.getEmail());
     }
 }

@@ -30,8 +30,6 @@ public class EditProfileActivity extends AppCompatActivity implements EditProfil
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_profile);
 
-        mPresenter = new EditProfilePresenterImpl(this);
-
         tbMain = (Toolbar) findViewById(R.id.tb_main);
         TextView lbTitleToolbar = (TextView) findViewById(R.id.lb_title);
         lbTitleToolbar.setText(R.string.profile);
@@ -48,6 +46,8 @@ public class EditProfileActivity extends AppCompatActivity implements EditProfil
 
         tlEmail.setErrorEnabled(true);
         tlName.setErrorEnabled(true);
+
+        mPresenter = new EditProfilePresenterImpl(this);
     }
 
     public void updateProfile(View view) {
@@ -63,6 +63,7 @@ public class EditProfileActivity extends AppCompatActivity implements EditProfil
         switch (item.getItemId()) {
             case android.R.id.home:
                 NavUtils.navigateUpFromSameTask(this);
+                finish();
                 break;
         }
         return super.onOptionsItemSelected(item);
@@ -101,6 +102,12 @@ public class EditProfileActivity extends AppCompatActivity implements EditProfil
     @Override
     public void showInvalidEmailError(String msg) {
         tlEmail.setError(msg);
+    }
+
+    @Override
+    public void setActualNameAndEmail(String name, String email) {
+        edtEmail.setText(email);
+        edtName.setText(name);
     }
 
     @Override

@@ -7,4 +7,5 @@ public interface EditProfileView extends AppView {
     void notifyErrorEdit(String msg);
     void showInvalidNameError(String msg);
     void showInvalidEmailError(String msg);
+    void setActualNameAndEmail(String name, String email);
 }
