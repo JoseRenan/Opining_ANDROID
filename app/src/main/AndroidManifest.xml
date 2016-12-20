@@ -4,7 +4,7 @@
     package="br.com.opining">
 
     <application
-        android:name=".view.activities.OpiningApplication"
+        android:name=".OpiningApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -24,7 +24,7 @@
             android:theme="@android:style/Theme.Translucent.NoTitleBar"
             tools:replace="android:theme" />
         <activity
-            android:name=".view.activities.SplashScreen"
+            android:name=".mvp.splash.SplashActivity"
             android:theme="@style/Theme.Pink">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -32,29 +32,29 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".view.activities.LoginActivity" />
+        <activity android:name=".mvp.login.LoginActivity" />
         <activity
-            android:name=".view.activities.RegisterActivity"
-            android:parentActivityName=".view.activities.LoginActivity" />
+            android:name=".mvp.register.RegisterActivity"
+            android:parentActivityName=".mvp.login.LoginActivity" />
         <activity
-            android:name=".view.activities.HomeActivity"
+            android:name=".mvp.home.HomeActivity"
             android:theme="@style/Theme.Pink"/>
 
         <activity
-            android:name=".view.activities.SettingsActivity"
-            android:parentActivityName=".view.activities.HomeActivity"
+            android:name=".mvp.settings.SettingsActivity"
+            android:parentActivityName=".mvp.home.HomeActivity"
             android:theme="@style/Theme.Amber" />
         <activity
-            android:name=".view.activities.SecurityActivity"
-            android:parentActivityName=".view.activities.SettingsActivity"
+            android:name=".mvp.settings.security.SecurityActivity"
+            android:parentActivityName=".mvp.settings.SettingsActivity"
             android:theme="@style/Theme.Amber" />
         <activity
-            android:name=".view.activities.EditProfileActivity"
-            android:parentActivityName=".view.activities.SettingsActivity"
+            android:name=".mvp.settings.profile.EditProfileActivity"
+            android:parentActivityName=".mvp.settings.SettingsActivity"
             android:theme="@style/Theme.Amber" />
         <activity
-            android:name=".view.activities.AboutActivity"
-            android:parentActivityName=".view.activities.SettingsActivity"
+            android:name=".mvp.settings.AboutActivity"
+            android:parentActivityName=".mvp.settings.SettingsActivity"
             android:theme="@style/Theme.Amber" />
 
         <service android:name=".services.FirebaseMessagingService">
