@@ -4,6 +4,10 @@ import android.support.annotation.NonNull;
 
 import com.google.firebase.auth.FirebaseAuth;
 
+import java.util.ArrayList;
+
+import br.com.opining.domain.Room;
+
 public class HomePresenterImpl implements HomePresenter, FirebaseAuth.AuthStateListener {
 
     private HomeView mView;
