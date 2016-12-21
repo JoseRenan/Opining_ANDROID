@@ -5,12 +5,17 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
+import java.util.ArrayList;
+
 import br.com.opining.R;
+import br.com.opining.domain.Room;
 import br.com.opining.mvp.login.LoginActivity;
 import br.com.opining.mvp.settings.SettingsActivity;
 import br.com.opining.mvp.home.create.room.CreateRoomDialogFragment;
@@ -20,17 +25,27 @@ public class HomeActivity extends AppCompatActivity implements HomeView {
     private Toolbar tbMain;
     private FloatingActionButton fab;
     private HomePresenter mPresenter;
+    private RecyclerView mRecyclerView;
+    private RecyclerView.Adapter mAdapter;
+    private RecyclerView.LayoutManager mLayoutManager;
+    private ArrayList<Room> roomsDataset;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
-        mPresenter = new HomePresenterImpl(this);
-
         tbMain = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(tbMain);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
+
+        roomsDataset = new ArrayList<>();
+
+        mRecyclerView = (RecyclerView) findViewById(R.id.lst_debates);
+        mLayoutManager = new LinearLayoutManager(this);
+        mRecyclerView.setLayoutManager(mLayoutManager);
+        mAdapter = new DebatesAdapter(roomsDataset);
+        mRecyclerView.setAdapter(mAdapter);
 
         fab = (FloatingActionButton) findViewById(R.id.btn_create_room);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -39,6 +54,8 @@ public class HomeActivity extends AppCompatActivity implements HomeView {
                 new CreateRoomDialogFragment().show(getSupportFragmentManager(), "createRoom");
             }
         });
+
+        mPresenter = new HomePresenterImpl(this);
     }
 
     @Override
@@ -66,6 +83,12 @@ public class HomeActivity extends AppCompatActivity implements HomeView {
         Intent intent = new Intent(this, LoginActivity.class);
         startActivity(intent);
         finish();
+    }
+
+    @Override
+    public void addDebatesToList(Room room) {
+        roomsDataset.add(0, room);
+        mAdapter.notifyItemInserted(0);
     }
 
     @Override
