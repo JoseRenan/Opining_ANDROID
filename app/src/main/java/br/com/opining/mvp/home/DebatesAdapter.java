@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import java.util.Calendar;
 import java.util.List;
 
 import br.com.opining.R;
@@ -31,8 +32,13 @@ public class DebatesAdapter extends RecyclerView.Adapter {
         ViewHolder holder = (ViewHolder) viewHolder;
         Room item  = rooms.get(position) ;
 
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTimeInMillis(item.getTimestampLong());
+
         holder.lblName.setText(item.getAuthorId());
         holder.lblPost.setText("\"" + item.getContent() + "\"");
+        holder.lblDate.setText(calendar.get(Calendar.DAY_OF_MONTH) + "/" + calendar.get(Calendar.MONTH) + " - " +
+                calendar.get(Calendar.HOUR) + ":" + calendar.get(Calendar.MINUTE));
     }
     @Override
     public int getItemCount() {
