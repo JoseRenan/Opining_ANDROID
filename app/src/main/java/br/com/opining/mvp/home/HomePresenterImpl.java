@@ -8,13 +8,15 @@ import java.util.ArrayList;
 
 import br.com.opining.domain.Room;
 
-public class HomePresenterImpl implements HomePresenter, FirebaseAuth.AuthStateListener {
+public class HomePresenterImpl implements HomePresenter, FirebaseAuth.AuthStateListener, DebateRetriever.DebateRetrieveListener {
 
     private HomeView mView;
+    private DebateRetriever mModel;
     private FirebaseAuth firebase;
 
     public HomePresenterImpl(HomeView mView) {
         this.mView = mView;
+        this.mModel = new HomeModel(this);
         firebase = FirebaseAuth.getInstance();
         firebase.addAuthStateListener(this);
     }
@@ -27,6 +29,7 @@ public class HomePresenterImpl implements HomePresenter, FirebaseAuth.AuthStateL
     @Override
     public void onDestroy() {
         mView = null;
+        mModel.stopListening();
         firebase.removeAuthStateListener(this);
     }
 
@@ -35,5 +38,10 @@ public class HomePresenterImpl implements HomePresenter, FirebaseAuth.AuthStateL
         if (firebaseAuth.getCurrentUser() == null) {
             mView.logoutSuccessful();
         }
+    }
+
+    @Override
+    public void onDebateRetrieved(Room room) {
+        mView.addDebatesToList(room);
     }
 }

@@ -5,6 +5,9 @@ public class Room {
     private String authorId;
     private String content;
 
+    public Room() {
+    }
+
     public Room(String authorId, String content) {
         this.authorId = authorId;
         this.content = content;
