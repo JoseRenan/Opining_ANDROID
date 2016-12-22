@@ -45,7 +45,7 @@
             app:layout_constraintHorizontal_bias="1.0" />
 
         <TextView
-            android:text="13 pessoas na sala"
+            android:text="0 pessoas na sala"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/lbl_count_participants"

@@ -8,6 +8,7 @@ import android.widget.TextView;
 
 import java.util.Calendar;
 import java.util.List;
+import java.util.TimeZone;
 
 import br.com.opining.R;
 import br.com.opining.domain.Room;
@@ -26,6 +27,7 @@ public class DebatesAdapter extends RecyclerView.Adapter {
         ViewHolder holder = new ViewHolder(view);
         return holder;
     }
+
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder viewHolder, int position) {
 
@@ -33,13 +35,19 @@ public class DebatesAdapter extends RecyclerView.Adapter {
         Room item  = rooms.get(position) ;
 
         Calendar calendar = Calendar.getInstance();
+        calendar.setTimeZone(TimeZone.getDefault());
         calendar.setTimeInMillis(item.getTimestampLong());
 
         holder.lblName.setText(item.getAuthorId());
         holder.lblPost.setText("\"" + item.getContent() + "\"");
-        holder.lblDate.setText(calendar.get(Calendar.DAY_OF_MONTH) + "/" + calendar.get(Calendar.MONTH) + " - " +
-                calendar.get(Calendar.HOUR) + ":" + calendar.get(Calendar.MINUTE));
+        holder.lblDate.setText(String.format("%02d/%02d/%04d, %02d:%02d",
+                calendar.get(Calendar.DAY_OF_MONTH),
+                calendar.get(Calendar.MONTH),
+                calendar.get(Calendar.YEAR),
+                calendar.get(Calendar.HOUR_OF_DAY),
+                calendar.get(Calendar.MINUTE)));
     }
+
     @Override
     public int getItemCount() {
         return rooms.size();

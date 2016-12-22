@@ -89,6 +89,7 @@ public class HomeActivity extends AppCompatActivity implements HomeView {
     public void addDebatesToList(Room room) {
         roomsDataset.add(0, room);
         mAdapter.notifyItemInserted(0);
+        mLayoutManager.scrollToPosition(0);
     }
 
     @Override

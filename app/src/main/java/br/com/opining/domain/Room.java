@@ -23,6 +23,12 @@ public class Room {
         timestamp.put("timestamp", ServerValue.TIMESTAMP);
     }
 
+    public Room(String authorId, String content, HashMap<String, Object> timestamp) {
+        this.authorId = authorId;
+        this.content = content;
+        this.timestamp = timestamp;
+    }
+
     public String getAuthorId() {
         return authorId;
     }

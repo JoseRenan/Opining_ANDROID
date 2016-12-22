@@ -1,14 +1,10 @@
 package br.com.opining.mvp.home;
 
-
-import android.util.Log;
-
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ServerValue;
 import com.google.firebase.database.ValueEventListener;
 
 import br.com.opining.domain.Room;
@@ -39,36 +35,37 @@ public class HomeModel implements DebateRetriever, ChildEventListener {
 
     @Override
     public void onChildChanged(DataSnapshot dataSnapshot, String s) {
-        getUser(dataSnapshot.getValue(Room.class));
+        //TODO Definir o que fazer quando um post for editado
     }
 
     @Override
     public void onChildRemoved(DataSnapshot dataSnapshot) {
-        getUser(dataSnapshot.getValue(Room.class));
+        //TODO Definir o que fazer quando um post é removido
     }
 
     @Override
     public void onChildMoved(DataSnapshot dataSnapshot, String s) {
-        getUser(dataSnapshot.getValue(Room.class));
+       //TODO Definir o que fazer quando um post muda de ordem
     }
 
     @Override
     public void onCancelled(DatabaseError databaseError) {}
 
     private void getUser(final Room room) {
-        debateListener.onDebateRetrieved(room);
-        /*DatabaseReference mUserReference = this.mDatabase.getReference("users").child(room.getAuthorId());
+        DatabaseReference mUserReference = this.mDatabase.getReference("users").child(room.getAuthorId());
         ValueEventListener userListener = new ValueEventListener() {
 
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
+                Room newRoom = new Room(room.getAuthorId(), room.getContent(), room.getTimestamp());
                 User user = dataSnapshot.getValue(User.class);
-                room.setAuthorId(user.getName());
-                debateListener.onDebateRetrieved(room);
+                newRoom.setAuthorId(user.getName());
+                debateListener.onDebateRetrieved(newRoom);
             }
 
             @Override
             public void onCancelled(DatabaseError databaseError) {}
-        };*/
+        };
+        mUserReference.addListenerForSingleValueEvent(userListener);
     }
 }
