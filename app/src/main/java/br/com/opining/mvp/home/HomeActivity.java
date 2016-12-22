@@ -28,23 +28,22 @@ public class HomeActivity extends AppCompatActivity implements HomeView {
     private RecyclerView mRecyclerView;
     private RecyclerView.Adapter mAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
-    private ArrayList<Room> roomsDataset;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
+        mPresenter = new HomePresenterImpl(this);
+
         tbMain = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(tbMain);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
 
-        roomsDataset = new ArrayList<>();
-
         mRecyclerView = (RecyclerView) findViewById(R.id.lst_debates);
         mLayoutManager = new LinearLayoutManager(this);
         mRecyclerView.setLayoutManager(mLayoutManager);
-        mAdapter = new DebatesAdapter(roomsDataset);
+        mAdapter = new DebatesAdapter(mPresenter.getRooms());
         mRecyclerView.setAdapter(mAdapter);
 
         fab = (FloatingActionButton) findViewById(R.id.btn_create_room);
@@ -54,8 +53,7 @@ public class HomeActivity extends AppCompatActivity implements HomeView {
                 new CreateRoomDialogFragment().show(getSupportFragmentManager(), "createRoom");
             }
         });
-
-        mPresenter = new HomePresenterImpl(this);
+        mPresenter.startListening();
     }
 
     @Override
@@ -86,9 +84,9 @@ public class HomeActivity extends AppCompatActivity implements HomeView {
     }
 
     @Override
-    public void addDebatesToList(Room room) {
-        roomsDataset.add(0, room);
-        mAdapter.notifyItemInserted(0);
+    public void updateDebatesDataset() {
+        mAdapter.notifyDataSetChanged();
+        mLayoutManager.scrollToPosition(0);
     }
 
     @Override
