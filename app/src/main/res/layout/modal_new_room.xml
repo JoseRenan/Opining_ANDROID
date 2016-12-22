@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+    android:theme="@style/Theme.Pink"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
@@ -22,6 +22,8 @@
         <EditText
             android:layout_height="wrap_content"
             android:inputType="textMultiLine"
+            android:lines="3"
+            android:gravity="top|left"
             android:ems="10"
             android:id="@+id/edt_post"
             android:hint="Digite sua opinião"

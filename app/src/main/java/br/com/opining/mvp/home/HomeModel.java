@@ -1,5 +1,7 @@
 package br.com.opining.mvp.home;
 
+import android.util.Log;
+
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -12,6 +14,7 @@ import br.com.opining.domain.User;
 
 public class HomeModel implements DebateRetriever, ChildEventListener {
 
+    private final String TAG = getClass().getName();
     private DebateRetrieveListener debateListener;
     private FirebaseDatabase mDatabase;
     private DatabaseReference mReference;
@@ -30,26 +33,30 @@ public class HomeModel implements DebateRetriever, ChildEventListener {
 
     @Override
     public void onChildAdded(DataSnapshot dataSnapshot, String s) {
-        getUser(dataSnapshot.getValue(Room.class));
+        Room room = dataSnapshot.getValue(Room.class);
+        room.setRoomId(dataSnapshot.getKey());
+        getUser(room);
     }
 
     @Override
     public void onChildChanged(DataSnapshot dataSnapshot, String s) {
-        //TODO Definir o que fazer quando um post for editado
+        debateListener.onDebateUpdated(dataSnapshot.getKey(), dataSnapshot.getValue(Room.class));
     }
 
     @Override
     public void onChildRemoved(DataSnapshot dataSnapshot) {
-        //TODO Definir o que fazer quando um post é removido
+        debateListener.onDebateRemoved(dataSnapshot.getKey());
     }
 
     @Override
     public void onChildMoved(DataSnapshot dataSnapshot, String s) {
-       //TODO Definir o que fazer quando um post muda de ordem
+        Log.i(TAG, dataSnapshot.getKey() + " Foi movido no firebase");
     }
 
     @Override
-    public void onCancelled(DatabaseError databaseError) {}
+    public void onCancelled(DatabaseError databaseError) {
+        debateListener.onCancelled(databaseError.toException());
+    }
 
     private void getUser(final Room room) {
         DatabaseReference mUserReference = this.mDatabase.getReference("users").child(room.getAuthorId());
@@ -57,14 +64,17 @@ public class HomeModel implements DebateRetriever, ChildEventListener {
 
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                Room newRoom = new Room(room.getAuthorId(), room.getContent(), room.getTimestamp());
+                Room newRoom = new Room(room.getRoomId(), room.getAuthorId(),
+                        room.getContent(), room.getTimestamp());
                 User user = dataSnapshot.getValue(User.class);
                 newRoom.setAuthorId(user.getName());
-                debateListener.onDebateRetrieved(newRoom);
+                debateListener.onDebateReceived(newRoom);
             }
 
             @Override
-            public void onCancelled(DatabaseError databaseError) {}
+            public void onCancelled(DatabaseError databaseError) {
+                debateListener.onCancelled(databaseError.toException());
+            }
         };
         mUserReference.addListenerForSingleValueEvent(userListener);
     }

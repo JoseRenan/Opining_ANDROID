@@ -4,11 +4,10 @@ import com.google.firebase.database.Exclude;
 import com.google.firebase.database.ServerValue;
 
 import java.util.HashMap;
-import java.util.Map;
-import java.util.Objects;
 
 public class Room {
 
+    private String roomId;
     private String authorId;
     private String content;
     private HashMap<String, Object> timestamp;
@@ -23,7 +22,8 @@ public class Room {
         timestamp.put("timestamp", ServerValue.TIMESTAMP);
     }
 
-    public Room(String authorId, String content, HashMap<String, Object> timestamp) {
+    public Room(String roomId, String authorId, String content, HashMap<String, Object> timestamp) {
+        this.roomId = roomId;
         this.authorId = authorId;
         this.content = content;
         this.timestamp = timestamp;
@@ -41,6 +41,15 @@ public class Room {
         return content;
     }
 
+    @Exclude
+    public String getRoomId() {
+        return roomId;
+    }
+
+    @Exclude
+    public void setRoomId(String roomId) {
+        this.roomId = roomId;
+    }
 
     public HashMap<String, Object> getTimestamp() {
         return timestamp;
