@@ -23,20 +23,16 @@ repositories {
 }
 
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile fileTree(include: ['*.jar'], dir: 'libs')
     testCompile 'junit:junit:4.12'
     compile 'com.android.support:appcompat-v7:25.1.0'
     compile 'com.android.support:design:25.1.0'
-
-
     compile 'com.android.support:support-v4:25.1.0'
     compile 'com.android.support:recyclerview-v7:25.1.0'
-
     compile 'com.google.firebase:firebase-core:10.0.1'
     compile 'com.google.firebase:firebase-auth:10.0.1'
     compile 'com.google.firebase:firebase-database:10.0.1'
     compile 'com.google.firebase:firebase-messaging:10.0.1'
-
     compile 'com.facebook.android:facebook-android-sdk:[4,5)'
     compile('com.twitter.sdk.android:twitter:2.0.0@aar') {
         transitive = true;
@@ -47,4 +43,3 @@ dependencies {
 
 apply plugin: 'com.google.gms.google-services'
 apply plugin: 'io.fabric'
-
