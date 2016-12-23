@@ -1,6 +1,10 @@
 package br.com.opining.helpers;
 
 import org.junit.Test;
+
+import java.util.HashMap;
+import java.util.LinkedList;
+
 import static org.junit.Assert.*;
 
 /*
@@ -10,7 +14,7 @@ import static org.junit.Assert.*;
 public class ValidatorHelperTest {
 
     @Test
-    public void testValidateEmail(){
+    public void validateEmail(){
         assertTrue(ValidatorHelper.validateEmail("juanlyrabarros@gmail.com"));
         assertTrue(ValidatorHelper.validateEmail("juan_lyra_barros@gl.co.br.ba.br.na"));
         assertTrue(ValidatorHelper.validateEmail("juan.barros@gmail.com"));
@@ -34,12 +38,24 @@ public class ValidatorHelperTest {
     }
 
     @Test
-    public void testValidateName(){
+    public void validateName(){
+        assertFalse(ValidatorHelper.validateName(null));
+        assertFalse(ValidatorHelper.validateName(""));
 
+        String possiveis = "abcdefghijklmnopqrstuwxyzABCDEFGHIJKLMNOPQRSTUVXWYZÁÉÍÓÚáéíóúâêîôûÂÊÎÔÛÃÕãõ ";
+
+        for (int i = 0; i !=  255; i++) {
+            String teste = Character.toString((char) i);
+            if(possiveis.contains(teste)) {
+                assertTrue(ValidatorHelper.validateName(teste));
+            }else{
+                assertFalse(ValidatorHelper.validateName(teste));
+            }
+        }
     }
 
     @Test
-    public void testValidatePassword(){
+    public void validatePassword(){
 
     }
 }
