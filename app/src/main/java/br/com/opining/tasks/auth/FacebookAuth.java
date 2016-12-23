@@ -38,6 +38,7 @@ public class FacebookAuth implements FacebookCallback<LoginResult> {
     @Override
     public void onCancel() {
         //TODO Criar exception para tratar cancelamento de requisição
+        authenticable.onFailedGetCredentials(new Exception());
     }
 
     @Override
