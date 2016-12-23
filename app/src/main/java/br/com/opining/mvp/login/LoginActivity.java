@@ -61,6 +61,11 @@ public class LoginActivity extends AppCompatActivity implements LoginView {
         mPresenter.doLoginWithTwitter();
     }
 
+    public void doLoginWithGoogle(View view){
+        startLoading(true);
+        mPresenter.doLoginWithGoogle();
+    }
+
     @Override
     protected void onDestroy() {
         super.onDestroy();
