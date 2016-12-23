@@ -13,14 +13,14 @@ import com.google.firebase.auth.FirebaseAuthUserCollisionException;
 import br.com.opining.R;
 import br.com.opining.helpers.ValidatorHelper;
 
-public class LoginPresenterImpl implements LoginPresenter, Authenticator.OnLoginListener {
+public class LoginPresenterImpl implements LoginPresenter, LoginModel.OnLoginListener {
 
     private LoginView mView;
-    private Authenticator mModel;
+    private LoginModel mModel;
 
     public LoginPresenterImpl(LoginView mView) {
         this.mView = mView;
-        this.mModel = new LoginModel(this);
+        this.mModel = new LoginModelImpl(this);
     }
 
     @Override
@@ -38,6 +38,11 @@ public class LoginPresenterImpl implements LoginPresenter, Authenticator.OnLogin
     @Override
     public void doLoginWithTwitter() {
         mModel.doLoginWithTwitter();
+    }
+
+    @Override
+    public void doLoginWithGoogle() {
+        mModel.doLoginWithGoogle();
     }
 
     @Override

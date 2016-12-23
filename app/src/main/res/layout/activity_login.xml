@@ -213,7 +213,8 @@
                     android:layout_width="42dp"
                     android:layout_height="42dp"
                     android:layout_marginLeft="12dp"
-                    style="@style/Widget.AppCompat.Button.Borderless" />
+                    style="@style/Widget.AppCompat.Button.Borderless"
+                    android:onClick="doLoginWithGoogle" />
 
             </LinearLayout>
 
