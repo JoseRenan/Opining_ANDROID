@@ -56,6 +56,11 @@ public class ValidatorHelperTest {
 
     @Test
     public void validatePassword(){
+        assertFalse(ValidatorHelper.validateName(null));
+        assertFalse(ValidatorHelper.validatePassword(""));
+        assertFalse(ValidatorHelper.validatePassword("12345"));
+        assertFalse(ValidatorHelper.validatePassword("1234567890123456789012345678901"));
 
+        assertTrue(ValidatorHelper.validatePassword("123456"));
     }
 }
