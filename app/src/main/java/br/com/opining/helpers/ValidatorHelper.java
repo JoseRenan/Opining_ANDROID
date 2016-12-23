@@ -2,6 +2,9 @@ package br.com.opining.helpers;
 
 public class ValidatorHelper {
 
+    //TODO Validador não está preparado para entrada nula
+    //TODO Validador deixa passar endereços enormes
+    //TODO Validador deixa passar endereços com "." antes do "@"
     public static boolean validateEmail(String email) {
         return email.matches("(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)" +
                 "*|\"(?:[\\x01-\\x08\\x0b\\x0c\\x0e-\\x1f\\x21\\x23-\\x5b\\x5d-\\x7f]|\\\\[\\x01-\\" +
