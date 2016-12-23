@@ -41,6 +41,11 @@ public class LoginPresenterImpl implements LoginPresenter, Authenticator.OnLogin
     }
 
     @Override
+    public void doLoginWithGoogle() {
+        mModel.doLoginWithGoogle();
+    }
+
+    @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         mModel.onActivityResult(requestCode, resultCode, data);
     }

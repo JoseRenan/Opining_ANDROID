@@ -17,5 +17,6 @@ public interface Authenticator {
     void onActivityResult(int requestCode, int resultCode, Intent data);
     void doLoginWithFacebook(Context context);
     void doLoginWithTwitter();
+    void doLoginWithGoogle();
     void doLoginWithEmail(String email, String password);
 }
