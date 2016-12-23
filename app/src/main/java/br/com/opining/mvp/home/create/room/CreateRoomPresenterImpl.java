@@ -18,7 +18,7 @@ public class CreateRoomPresenterImpl implements CreateRoomPresenter {
     @Override
     public void createRoom(String post) {
         FirebaseUser user = FirebaseUserHelper.getCurrentFirebaseUser();
-        Room room = new Room(user.getUid(), post);
+        Room room = new Room(user.getUid(), post.trim());
         DatabaseReference myRef = FirebaseDatabase.getInstance().getReference();
         myRef.child("posts").push().setValue(room);
         mView.notifyRoomCreated();

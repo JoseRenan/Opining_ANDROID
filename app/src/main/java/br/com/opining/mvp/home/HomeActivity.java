@@ -5,12 +5,17 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
+import java.util.ArrayList;
+
 import br.com.opining.R;
+import br.com.opining.domain.Room;
 import br.com.opining.mvp.login.LoginActivity;
 import br.com.opining.mvp.settings.SettingsActivity;
 import br.com.opining.mvp.home.create.room.CreateRoomDialogFragment;
@@ -20,6 +25,9 @@ public class HomeActivity extends AppCompatActivity implements HomeView {
     private Toolbar tbMain;
     private FloatingActionButton fab;
     private HomePresenter mPresenter;
+    private RecyclerView mRecyclerView;
+    private RecyclerView.Adapter mAdapter;
+    private RecyclerView.LayoutManager mLayoutManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +40,12 @@ public class HomeActivity extends AppCompatActivity implements HomeView {
         setSupportActionBar(tbMain);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
 
+        mRecyclerView = (RecyclerView) findViewById(R.id.lst_debates);
+        mLayoutManager = new LinearLayoutManager(this);
+        mRecyclerView.setLayoutManager(mLayoutManager);
+        mAdapter = new DebatesAdapter(mPresenter.getRooms());
+        mRecyclerView.setAdapter(mAdapter);
+
         fab = (FloatingActionButton) findViewById(R.id.btn_create_room);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -39,6 +53,7 @@ public class HomeActivity extends AppCompatActivity implements HomeView {
                 new CreateRoomDialogFragment().show(getSupportFragmentManager(), "createRoom");
             }
         });
+        mPresenter.startListening();
     }
 
     @Override
@@ -66,6 +81,12 @@ public class HomeActivity extends AppCompatActivity implements HomeView {
         Intent intent = new Intent(this, LoginActivity.class);
         startActivity(intent);
         finish();
+    }
+
+    @Override
+    public void updateDebatesDataset() {
+        mAdapter.notifyDataSetChanged();
+        mLayoutManager.scrollToPosition(0);
     }
 
     @Override

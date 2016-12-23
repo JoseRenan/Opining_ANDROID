@@ -1,13 +1,13 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 24
+    compileSdkVersion 25
     buildToolsVersion "23.0.2"
 
     defaultConfig {
         applicationId "br.com.opining"
         minSdkVersion 16
-        targetSdkVersion 24
+        targetSdkVersion 25
         versionCode 1
         versionName "0.0.1-ALPHA"
     }
@@ -43,4 +43,3 @@ dependencies {
 
 apply plugin: 'com.google.gms.google-services'
 apply plugin: 'io.fabric'
-
