@@ -43,7 +43,8 @@ public class ValidatorHelperTest {
         assertFalse(ValidatorHelper.validateName(""));
 
         //61 caracteres
-        assertFalse(ValidatorHelper.validateName("1111111111111111111111111111111111111111111111111111111111111"));
+        assertFalse(ValidatorHelper.validateName("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"));
+        assertTrue(ValidatorHelper.validateName("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"));
 
 
         String possiveis = "abcdefghijklmnopqrstuwxyzABCDEFGHIJKLMNOPQRSTUVXWYZÁÉÍÓÚáéíóúâêîôûÂÊÎÔÛÃÕãõ ";
