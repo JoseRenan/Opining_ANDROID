@@ -1,4 +1,4 @@
-package br.com.opining.services.auth;
+package br.com.opining.tasks.auth;
 
 import com.google.firebase.auth.AuthCredential;
 

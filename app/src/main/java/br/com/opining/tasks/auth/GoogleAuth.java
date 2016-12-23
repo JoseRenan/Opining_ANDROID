@@ -1,6 +1,5 @@
-package br.com.opining.services.auth;
+package br.com.opining.tasks.auth;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
