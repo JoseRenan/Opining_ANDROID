@@ -42,15 +42,15 @@ public class ValidatorHelperTest {
         assertFalse(ValidatorHelper.validateName(null));
         assertFalse(ValidatorHelper.validateName(""));
 
+        //61 caracteres
+        assertFalse(ValidatorHelper.validateName("1111111111111111111111111111111111111111111111111111111111111"));
+
+
         String possiveis = "abcdefghijklmnopqrstuwxyzABCDEFGHIJKLMNOPQRSTUVXWYZÁÉÍÓÚáéíóúâêîôûÂÊÎÔÛÃÕãõ ";
 
         for (int i = 0; i !=  255; i++) {
             String teste = Character.toString((char) i);
-            if(possiveis.contains(teste)) {
-                assertTrue(ValidatorHelper.validateName(teste));
-            }else{
-                assertFalse(ValidatorHelper.validateName(teste));
-            }
+            assertTrue(possiveis.contains(teste) == ValidatorHelper.validateName(teste));
         }
     }
 
