@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:theme="@style/Theme.Pink"
     android:orientation="vertical"
     android:layout_width="match_parent"
@@ -29,5 +30,29 @@
             android:hint="Digite sua opinião"
             android:layout_width="match_parent" />
     </android.support.design.widget.TextInputLayout>
+
+    <Button
+        android:text="@string/create_room"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/btn_create_room"
+        app:layout_constraintLeft_toLeftOf="@+id/textInputLayout"
+        android:layout_marginTop="8dp"
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayout"
+        style="@style/Theme.BtnCreateRoom"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="16dp"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <Button
+        android:text="@string/cancel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/btn_cancel"
+        app:layout_constraintTop_toTopOf="@+id/btn_create_room"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginRight="16dp"
+        style="@style/Widget.AppCompat.Button" />
 
 </android.support.constraint.ConstraintLayout>
