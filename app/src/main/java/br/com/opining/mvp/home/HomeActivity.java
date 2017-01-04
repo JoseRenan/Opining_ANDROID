@@ -11,6 +11,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.LinearLayout;
 
 import java.util.ArrayList;
 
@@ -28,6 +29,8 @@ public class HomeActivity extends AppCompatActivity implements HomeView {
     private RecyclerView mRecyclerView;
     private RecyclerView.Adapter mAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
+    private LinearLayout contentLayout;
+    private LinearLayout loadingLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,6 +48,9 @@ public class HomeActivity extends AppCompatActivity implements HomeView {
         mRecyclerView.setLayoutManager(mLayoutManager);
         mAdapter = new DebatesAdapter(mPresenter.getRooms());
         mRecyclerView.setAdapter(mAdapter);
+        contentLayout = (LinearLayout) findViewById(R.id.content_layout);
+        loadingLayout = (LinearLayout) findViewById(R.id.loading_layout); 
+        
 
         fab = (FloatingActionButton) findViewById(R.id.btn_create_room);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -60,6 +66,11 @@ public class HomeActivity extends AppCompatActivity implements HomeView {
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.home_menu, menu);
         return true;
+    }
+
+    public void loadingMode(boolean status){
+        loadingLayout.setVisibility(View.VISIBLE);
+        contentLayout.setVisibility(View.GONE);
     }
 
     @Override
