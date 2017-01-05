@@ -1,6 +1,8 @@
 package br.com.opining.mvp.home;
 
 import android.support.annotation.NonNull;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 
 import com.google.firebase.auth.FirebaseAuth;
@@ -18,11 +20,17 @@ public class HomePresenterImpl implements HomePresenter, FirebaseAuth.AuthStateL
     private DebateRetriever mModel;
     private FirebaseAuth firebase;
     private ArrayList<Room> rooms;
+    private RecyclerView.Adapter mAdapter;
+    private RecyclerView.LayoutManager mLayoutManager;
 
-    public HomePresenterImpl(HomeView mView) {
+    public HomePresenterImpl(HomeView mView, RecyclerView mRecyclerView) {
         this.mView = mView;
         rooms = new ArrayList<>();
         this.mModel = new HomeModel(this);
+        mLayoutManager = new LinearLayoutManager(mView.getContext());
+        mRecyclerView.setLayoutManager(mLayoutManager);
+        mAdapter = new DebatesAdapter(getRooms());
+        mRecyclerView.setAdapter(mAdapter);
         firebase = FirebaseAuth.getInstance();
     }
 
@@ -58,7 +66,7 @@ public class HomePresenterImpl implements HomePresenter, FirebaseAuth.AuthStateL
     @Override
     public void onDebateReceived(Room room) {
         rooms.add(0, room);
-        mView.updateDebatesDataset();
+        updateAdapterRooms();
     }
 
     @Override
@@ -67,7 +75,7 @@ public class HomePresenterImpl implements HomePresenter, FirebaseAuth.AuthStateL
             if (rooms.get(i).getRoomId().equals(roomId))
                 rooms.get(i).setContent(room.getContent());
         }
-        mView.updateDebatesDataset();
+        updateAdapterRooms();
     }
 
     @Override
@@ -76,7 +84,7 @@ public class HomePresenterImpl implements HomePresenter, FirebaseAuth.AuthStateL
             if (rooms.get(i).getRoomId().equals(roomId))
                 rooms.remove(i);
         }
-        mView.updateDebatesDataset();
+        updateAdapterRooms();
     }
 
     @Override
@@ -84,5 +92,14 @@ public class HomePresenterImpl implements HomePresenter, FirebaseAuth.AuthStateL
         if (ex instanceof DatabaseException) {
             Log.e(TAG, ex.getLocalizedMessage());
         }
+    }
+
+    public void updateAdapterRooms(){
+        mView.loadingRecyclerView(true);
+
+        mAdapter.notifyDataSetChanged();
+        mLayoutManager.scrollToPosition(0);
+
+        mView.loadingRecyclerView(false);
     }
 }

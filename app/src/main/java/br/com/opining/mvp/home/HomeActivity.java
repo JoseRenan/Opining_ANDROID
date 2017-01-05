@@ -27,8 +27,6 @@ public class HomeActivity extends AppCompatActivity implements HomeView {
     private FloatingActionButton fab;
     private HomePresenter mPresenter;
     private RecyclerView mRecyclerView;
-    private RecyclerView.Adapter mAdapter;
-    private RecyclerView.LayoutManager mLayoutManager;
     private LinearLayout contentLayout;
     private LinearLayout loadingLayout;
 
@@ -37,17 +35,13 @@ public class HomeActivity extends AppCompatActivity implements HomeView {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
-        mPresenter = new HomePresenterImpl(this);
+        mRecyclerView = (RecyclerView) findViewById(R.id.lst_debates);
+        mPresenter = new HomePresenterImpl(this, mRecyclerView);
 
         tbMain = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(tbMain);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
 
-        mRecyclerView = (RecyclerView) findViewById(R.id.lst_debates);
-        mLayoutManager = new LinearLayoutManager(this);
-        mRecyclerView.setLayoutManager(mLayoutManager);
-        mAdapter = new DebatesAdapter(mPresenter.getRooms());
-        mRecyclerView.setAdapter(mAdapter);
         contentLayout = (LinearLayout) findViewById(R.id.content_layout);
         loadingLayout = (LinearLayout) findViewById(R.id.loading_layout); 
         
@@ -68,9 +62,10 @@ public class HomeActivity extends AppCompatActivity implements HomeView {
         return true;
     }
 
-    public void loadingMode(boolean status){
-        loadingLayout.setVisibility(View.VISIBLE);
-        contentLayout.setVisibility(View.GONE);
+    @Override
+    public void loadingRecyclerView(boolean status){
+        loadingLayout.setVisibility(status ? View.VISIBLE :  View.GONE);
+        contentLayout.setVisibility(status ? View.GONE : View.VISIBLE);
     }
 
     @Override
@@ -92,12 +87,6 @@ public class HomeActivity extends AppCompatActivity implements HomeView {
         Intent intent = new Intent(this, LoginActivity.class);
         startActivity(intent);
         finish();
-    }
-
-    @Override
-    public void updateDebatesDataset() {
-        mAdapter.notifyDataSetChanged();
-        mLayoutManager.scrollToPosition(0);
     }
 
     @Override

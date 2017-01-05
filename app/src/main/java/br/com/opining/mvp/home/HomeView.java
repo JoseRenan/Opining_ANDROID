@@ -5,5 +5,5 @@ import br.com.opining.mvp.AppView;
 
 public interface HomeView extends AppView {
     void logoutSuccessful();
-    void updateDebatesDataset();
+    void loadingRecyclerView(boolean status);
 }
