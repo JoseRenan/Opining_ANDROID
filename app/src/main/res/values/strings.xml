@@ -52,5 +52,6 @@
     <string name="cancel">Cancelar</string>
     <string name="send">Enviar</string>
     <string name="create_room">Criar Sala</string>
+    <string name="caracter_count">caracteres restantes</string>
 
 </resources>
