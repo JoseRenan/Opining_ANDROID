@@ -21,7 +21,7 @@ public class CreateRoomDialogFragment extends DialogFragment implements CreateRo
     @Override
     public void onStart() {
         super.onStart();
-        changeCharacterCount(CreateRoomTextWatcher.quant_letters);
+        changeCharacterCount(getContext().getResources().getInteger(R.integer.max_theme_name));
         edtPost.requestFocus();
     }
 

@@ -6,6 +6,8 @@ import android.text.TextWatcher;
 import android.util.AttributeSet;
 import android.widget.EditText;
 
+import br.com.opining.R;
+
 
 /**
  * Created by Juan on 14/01/2017.
@@ -13,7 +15,6 @@ import android.widget.EditText;
 
 public class CreateRoomTextWatcher implements TextWatcher {
         private CreateRoomView view;
-        public static final int quant_letters = 90;
 
         public CreateRoomTextWatcher(CreateRoomView view) {
             this.view = view;
@@ -24,7 +25,7 @@ public class CreateRoomTextWatcher implements TextWatcher {
 
         @Override
         public void onTextChanged(CharSequence charSequence,  int start, int before, int count) {
-            view.changeCharacterCount(quant_letters - charSequence.length());
+            view.changeCharacterCount(view.getContext().getResources().getInteger(R.integer.max_theme_name) - charSequence.length());
         }
 
         @Override
