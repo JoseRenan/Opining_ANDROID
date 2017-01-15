@@ -75,7 +75,7 @@ public class LoginActivity extends AppCompatActivity implements LoginView {
     @Override
     public void notifyLoginError(String msg) {
         startLoading(false);
-        AndroidHelper.showSnackbar(LoginActivity.this, msg);
+        AndroidHelper.showErrorSnackbar(LoginActivity.this, msg);
     }
 
     @Override
