@@ -5,6 +5,7 @@ import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.auth.UserInfo;
 import com.google.firebase.auth.UserProfileChangeRequest;
 
 public class FirebaseUserHelper {
@@ -25,5 +26,12 @@ public class FirebaseUserHelper {
     public static void updateUser (FirebaseUser fUser, UserProfileChangeRequest profileUpdates,
                                    OnCompleteListener<Void> listener) {
         fUser.updateProfile(profileUpdates).addOnCompleteListener(listener);
+    }
+
+    public static boolean isLoggedByOtherProviders() {
+        for (UserInfo user: getCurrentFirebaseUser().getProviderData())
+            if (!user.getProviderId().equals("password") && !user.getProviderId().equals("firebase"))
+                return true;
+        return false;
     }
 }

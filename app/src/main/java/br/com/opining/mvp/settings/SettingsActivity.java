@@ -15,6 +15,7 @@ import java.util.ArrayList;
 
 import br.com.opining.R;
 import br.com.opining.helpers.AndroidHelper;
+import br.com.opining.helpers.FirebaseUserHelper;
 import br.com.opining.mvp.settings.profile.EditProfileActivity;
 import br.com.opining.mvp.settings.security.SecurityActivity;
 import br.com.opining.domain.ListItem;
@@ -81,8 +82,10 @@ public class SettingsActivity extends AppCompatActivity {
 
         ArrayList<ListItem> items = new ArrayList<>();
 
-        items.add(new ListItem(R.drawable.ic_person_outline_black, R.string.profile));
-        items.add(new ListItem(R.drawable.ic_lock_outline_black, R.string.security));
+        if (!FirebaseUserHelper.isLoggedByOtherProviders()) {
+            items.add(new ListItem(R.drawable.ic_person_outline_black, R.string.profile));
+            items.add(new ListItem(R.drawable.ic_lock_outline_black, R.string.security));
+        }
         items.add(new ListItem(R.drawable.ic_clear_black, R.string.remove_account));
         items.add(new ListItem(R.drawable.ic_call_black, R.string.contact));
         items.add(new ListItem(R.drawable.ic_info_outline_black, R.string.about));
