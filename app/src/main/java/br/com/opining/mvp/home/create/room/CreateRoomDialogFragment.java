@@ -2,6 +2,7 @@ package br.com.opining.mvp.home.create.room;
 
 import android.app.Dialog;
 import android.os.Bundle;
+import android.support.design.widget.TextInputLayout;
 import android.support.v4.app.DialogFragment;
 import android.support.v7.app.AlertDialog;
 import android.view.LayoutInflater;
@@ -17,6 +18,7 @@ public class CreateRoomDialogFragment extends DialogFragment implements CreateRo
     private CreateRoomPresenter mPresenter;
     private EditText edtPost;
     private TextView labelQuant;
+    private TextInputLayout inputLayout;
 
     @Override
     public void onStart() {
@@ -36,6 +38,7 @@ public class CreateRoomDialogFragment extends DialogFragment implements CreateRo
         View view = inflater.inflate(R.layout.modal_new_room, null);
         labelQuant = (TextView) view.findViewById(R.id.quant_char_text);
         edtPost = (EditText) view.findViewById(R.id.edt_post);
+        inputLayout = (TextInputLayout) view.findViewById(R.id.textInputLayout);
         edtPost.addTextChangedListener(new CreateRoomTextWatcher(this));
 
         Button btn_create_room = (Button) view.findViewById(R.id.btn_create_room);
@@ -61,7 +64,13 @@ public class CreateRoomDialogFragment extends DialogFragment implements CreateRo
     }
 
     private void createRoom () {
-        mPresenter.createRoom(edtPost.getText().toString());
+        if (edtPost.getText().length() <= 0){
+            inputLayout.setError(getString(R.string.error_lenght_theme));
+        }
+        else {
+            mPresenter.createRoom(edtPost.getText().toString());
+        }
+
     }
 
     @Override

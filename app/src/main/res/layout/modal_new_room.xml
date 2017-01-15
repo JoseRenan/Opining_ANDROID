@@ -71,8 +71,7 @@
             android:hint="Digite sua opinião"
             android:layout_width="match_parent"
             tools:ignore="RtlHardcoded"
-            android:autoText="false"
-            android:maxLength="@integer/max_theme_name" />
+            android:maxLength="@integer/max_theme_name"/>
     </android.support.design.widget.TextInputLayout>
 
 </android.support.constraint.ConstraintLayout>

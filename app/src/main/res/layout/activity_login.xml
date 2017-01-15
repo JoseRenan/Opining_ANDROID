@@ -64,7 +64,8 @@
                     app:layout_constraintRight_toRightOf="@+id/edt_login"
                     app:layout_constraintLeft_toLeftOf="@+id/guideline3"
                     app:layout_constraintTop_toBottomOf="@+id/edt_login"
-                    android:layout_marginTop="4dp" />
+                    android:layout_marginTop="4dp"
+                    android:maxLength="@integer/max_password_possivel" />
 
 
             <Button

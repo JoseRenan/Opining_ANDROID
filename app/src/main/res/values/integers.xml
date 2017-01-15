@@ -1,4 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <integer name="max_theme_name">90</integer>
+    <integer name="min_dominio_possivel">4</integer>
+    <integer name="max_dominio_possivel">30</integer>
+    <integer name="max_name_possivel">60</integer>
+    <integer name="min_password_possivel">6</integer>
+    <integer name="max_password_possivel">30</integer>
 </resources>

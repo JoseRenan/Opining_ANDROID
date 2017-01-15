@@ -28,6 +28,7 @@
         <item name="colorPrimary">@color/colorPrimaryAmber</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDarkAmber</item>
         <item name="colorAccent">@color/colorAccentAmber</item>
+        <item name="android:statusBarColor">@color/colorPrimaryDarkAmber</item>
     </style>
 
     <style name="Theme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
