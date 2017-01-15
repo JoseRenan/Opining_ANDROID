@@ -11,16 +11,27 @@ import br.com.opining.R;
 
 public class AndroidHelper {
 
-    public static void showSnackbar(Activity activity, String msg) {
+    private static void showSnackbar(Activity activity, String msg, int color) {
         Snackbar snackbar = Snackbar.make(activity.findViewById(android.R.id.content), msg, Snackbar.LENGTH_LONG);
         ViewGroup group = (ViewGroup) snackbar.getView();
-        group.setBackgroundColor(ContextCompat.getColor(activity.getApplicationContext(), R.color.orange));
+        group.setBackgroundColor(ContextCompat.getColor(activity.getApplicationContext(), color));
         snackbar.show();
     }
 
+    public static void showErrorSnackbar(Activity activity, String msg) {
+        showSnackbar(activity, msg, R.color.orange);
+    }
 
-    public static void showSnackbar(Activity activity, int msg) {
-        showSnackbar(activity, activity.getApplicationContext().getString(msg));
+    public static void showErrorSnackbar(Activity activity, int msg) {
+        showErrorSnackbar(activity, activity.getApplicationContext().getString(msg));
+    }
+
+    public static void showSuccessSnackbar(Activity activity, String msg) {
+        showSnackbar(activity, msg, R.color.green);
+    }
+
+    public static void showSuccessSnackbar(Activity activity, int msg) {
+        showSuccessSnackbar(activity, activity.getApplicationContext().getString(msg));
     }
 
     public static void showToast(Context context, String msg) {

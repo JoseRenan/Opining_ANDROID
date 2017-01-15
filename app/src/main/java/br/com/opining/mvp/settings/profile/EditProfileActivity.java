@@ -86,12 +86,12 @@ public class EditProfileActivity extends AppCompatActivity implements EditProfil
 
     @Override
     public void notifySuccessfulEdit() {
-        AndroidHelper.showSnackbar(this, "Perfil atualizado com sucesso");
+        AndroidHelper.showSuccessSnackbar(this, "Perfil atualizado com sucesso");
     }
 
     @Override
     public void notifyErrorEdit(String msg) {
-        AndroidHelper.showSnackbar(this, msg);
+        AndroidHelper.showErrorSnackbar(this, msg);
     }
 
     @Override
