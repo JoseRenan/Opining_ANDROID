@@ -4,6 +4,11 @@
         <item name="android:textColorSecondary">@color/white</item>
     </style>
 
+    <style name="Theme.BtnCreateRoom" parent="Widget.AppCompat.Button" >
+        <item name="android:textColor">@color/white</item>
+        <item name="android:background">@drawable/button_orange</item>
+    </style>
+
     <!-- Purple theme for the initial screens -->
     <style name="Theme.Purple" parent="Theme.Main">
         <item name="colorPrimary">@color/colorPrimaryDeepPurple</item>
@@ -23,6 +28,7 @@
         <item name="colorPrimary">@color/colorPrimaryAmber</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDarkAmber</item>
         <item name="colorAccent">@color/colorAccentAmber</item>
+        <item name="android:statusBarColor">@color/colorPrimaryDarkAmber</item>
     </style>
 
     <style name="Theme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />

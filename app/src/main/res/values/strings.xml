@@ -51,5 +51,8 @@
     <string name="or">OU</string>
     <string name="cancel">Cancelar</string>
     <string name="send">Enviar</string>
+    <string name="create_room">Criar Sala</string>
+    <string name="caracter_count">caracteres restantes</string>
+    <string name="error_lenght_theme">Tema Inválido</string>
 
 </resources>

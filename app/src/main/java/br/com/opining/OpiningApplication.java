@@ -6,6 +6,7 @@ import com.facebook.FacebookSdk;
 import com.twitter.sdk.android.Twitter;
 import com.twitter.sdk.android.core.TwitterAuthConfig;
 
+import br.com.opining.helpers.ValidatorHelper;
 import io.fabric.sdk.android.Fabric;
 
 public class OpiningApplication extends Application {
@@ -19,5 +20,6 @@ public class OpiningApplication extends Application {
         TwitterAuthConfig authConfig = new TwitterAuthConfig(TWITTER_KEY, TWITTER_SECRET);
         Fabric.with(this, new Twitter(authConfig));
         FacebookSdk.sdkInitialize(this);
+        new ValidatorHelper(this);
     }
 }

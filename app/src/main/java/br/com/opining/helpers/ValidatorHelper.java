@@ -1,12 +1,25 @@
 package br.com.opining.helpers;
 
+import android.content.Context;
+
+import br.com.opining.R;
+
 public class ValidatorHelper {
 
-    private static final int MIN_DOMINIO_POSSIVEL = 4;
-    private static final int MAX_DOMINIO_POSSIVEL = 30;
-    private static final int MAX_NAME_POSSIVEL = 60;
-    private static final int MIN_PASSWORD_POSSIVEL = 6;
-    private static final int MAX_PASSWORD_POSSIVEL = 30;
+    private static int MIN_DOMINIO_POSSIVEL = 4;
+    private static int MAX_DOMINIO_POSSIVEL = 30;
+    private static int MAX_NAME_POSSIVEL = 60;
+    private static int MIN_PASSWORD_POSSIVEL = 6;
+    private static int MAX_PASSWORD_POSSIVEL = 30;
+
+
+    public ValidatorHelper(Context context){
+        MIN_DOMINIO_POSSIVEL = context.getResources().getInteger(R.integer.min_dominio_possivel);
+        MAX_DOMINIO_POSSIVEL = context.getResources().getInteger(R.integer.max_dominio_possivel);
+        MAX_NAME_POSSIVEL = context.getResources().getInteger(R.integer.max_name_possivel);
+        MIN_PASSWORD_POSSIVEL = context.getResources().getInteger(R.integer.min_password_possivel);
+        MAX_PASSWORD_POSSIVEL = context.getResources().getInteger(R.integer.max_password_possivel);
+    }
 
     public static boolean validateEmail(String email) {
         if (email == null){
