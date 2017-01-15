@@ -78,6 +78,14 @@ public class SettingsActivity extends AppCompatActivity {
         });
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        if (FirebaseUserHelper.isLoggedByOtherProviders())
+            AndroidHelper.showToast(SettingsActivity.this, "As opções de edição de perfil e de senha" +
+                    " estão temporariamente indisponíveis para usuários logados via rede social");
+    }
+
     public ArrayList<ListItem> generateItems() {
 
         ArrayList<ListItem> items = new ArrayList<>();
@@ -86,6 +94,7 @@ public class SettingsActivity extends AppCompatActivity {
             items.add(new ListItem(R.drawable.ic_person_outline_black, R.string.profile));
             items.add(new ListItem(R.drawable.ic_lock_outline_black, R.string.security));
         }
+
         items.add(new ListItem(R.drawable.ic_clear_black, R.string.remove_account));
         items.add(new ListItem(R.drawable.ic_call_black, R.string.contact));
         items.add(new ListItem(R.drawable.ic_info_outline_black, R.string.about));
