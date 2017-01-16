@@ -38,8 +38,7 @@
             android:parentActivityName=".mvp.login.LoginActivity" />
         <activity
             android:name=".mvp.home.HomeActivity"
-            android:theme="@style/Theme.Pink"/>
-
+            android:theme="@style/Theme.Pink" />
         <activity
             android:name=".mvp.settings.SettingsActivity"
             android:parentActivityName=".mvp.home.HomeActivity"
@@ -67,6 +66,8 @@
                 <action android:name="com.google.firebase.INSTANCE_ID_EVENT" />
             </intent-filter>
         </service>
+
+        <activity android:name=".mvp.room.RoomActivity"></activity>
     </application>
 
 </manifest>

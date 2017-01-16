@@ -43,8 +43,8 @@ public class HomeActivity extends AppCompatActivity implements HomeView {
         getSupportActionBar().setDisplayShowTitleEnabled(false);
 
         contentLayout = (LinearLayout) findViewById(R.id.content_layout);
-        loadingLayout = (LinearLayout) findViewById(R.id.loading_layout); 
-        
+        loadingLayout = (LinearLayout) findViewById(R.id.loading_layout);
+
 
         fab = (FloatingActionButton) findViewById(R.id.btn_create_room);
         fab.setOnClickListener(new View.OnClickListener() {
