@@ -50,29 +50,30 @@ public class SettingsActivity extends AppCompatActivity {
 
                 Intent intent;
 
-                switch (position) {
-                    case 0:
-                        intent = new Intent(SettingsActivity.this, EditProfileActivity.class);
-                        SettingsActivity.this.startActivity(intent);
-                        break;
+                if (!FirebaseUserHelper.isLoggedByOtherProviders() && position == 0) {
+                    intent = new Intent(SettingsActivity.this, EditProfileActivity.class);
+                    SettingsActivity.this.startActivity(intent);
+                }
 
-                    case 1:
-                        intent = new Intent(SettingsActivity.this, SecurityActivity.class);
-                        SettingsActivity.this.startActivity(intent);
-                        break;
+                if (!FirebaseUserHelper.isLoggedByOtherProviders() && position == 1) {
+                    intent = new Intent(SettingsActivity.this, SecurityActivity.class);
+                    SettingsActivity.this.startActivity(intent);
+                }
 
-                    case 2:
-                        AndroidHelper.showToast(SettingsActivity.this, "Esta opção do menu ainda não foi implementada");
-                        break;
+                if ((!FirebaseUserHelper.isLoggedByOtherProviders() && position == 2)
+                    ||  (FirebaseUserHelper.isLoggedByOtherProviders() && position == 0)) {
+                    AndroidHelper.showToast(SettingsActivity.this, "Esta opção do menu ainda não foi implementada");
+                }
 
-                    case 3:
-                        AndroidHelper.showToast(SettingsActivity.this, "Esta opção do menu ainda não foi implementada");
-                        break;
+                if ((!FirebaseUserHelper.isLoggedByOtherProviders() && position == 3)
+                        ||  (FirebaseUserHelper.isLoggedByOtherProviders() && position == 1)) {
+                    AndroidHelper.showToast(SettingsActivity.this, "Esta opção do menu ainda não foi implementada");
+                }
 
-                    case 4:
-                        intent = new Intent(SettingsActivity.this, AboutActivity.class);
-                        SettingsActivity.this.startActivity(intent);
-                        break;
+                if ((!FirebaseUserHelper.isLoggedByOtherProviders() && position == 4)
+                        ||  (FirebaseUserHelper.isLoggedByOtherProviders() && position == 2)) {
+                    intent = new Intent(SettingsActivity.this, AboutActivity.class);
+                    SettingsActivity.this.startActivity(intent);
                 }
             }
         });
