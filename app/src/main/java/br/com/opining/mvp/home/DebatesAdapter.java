@@ -42,7 +42,7 @@ public class DebatesAdapter extends RecyclerView.Adapter {
         holder.lblPost.setText("\"" + item.getContent() + "\"");
         holder.lblDate.setText(String.format("%02d/%02d/%04d, %02d:%02d",
                 calendar.get(Calendar.DAY_OF_MONTH),
-                calendar.get(Calendar.MONTH),
+                calendar.get(Calendar.MONTH) + 1,
                 calendar.get(Calendar.YEAR),
                 calendar.get(Calendar.HOUR_OF_DAY),
                 calendar.get(Calendar.MINUTE)));

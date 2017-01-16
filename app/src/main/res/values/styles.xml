@@ -13,7 +13,7 @@
     <style name="Theme.Purple" parent="Theme.Main">
         <item name="colorPrimary">@color/colorPrimaryDeepPurple</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDarkDeepPurple</item>
-        <item name="colorAccent">@color/colorPrimaryAmber</item>
+        <item name="colorAccent">@color/colorAccentDeepPurple</item>
     </style>
 
     <!-- Pink theme for the home screens -->
@@ -43,4 +43,5 @@
         <item name="android:textColor">@color/colorPrimaryAmber</item>
         <item name="android:textSize">12sp</item>
     </style>
+
 </resources>
