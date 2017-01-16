@@ -9,69 +9,111 @@
 
     <Button
         android:text="@string/create_room"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:id="@+id/btn_create_room"
-        app:layout_constraintLeft_toLeftOf="@+id/textInputLayout"
-        app:layout_constraintTop_toBottomOf="@+id/quant_char_text"
-        style="@style/Theme.BtnCreateRoom"
+        android:fontFamily="sans-serif-light"
+        android:backgroundTint="@color/colorPrimaryAmber"
         app:layout_constraintBottom_toBottomOf="parent"
-        android:layout_marginBottom="16dp"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintLeft_toLeftOf="@+id/guideline9"
+        android:layout_marginTop="16dp"
+        app:layout_constraintTop_toBottomOf="@+id/quant_char_text"
         app:layout_constraintVertical_bias="0.0"
-        android:layout_marginTop="8dp" />
+        app:layout_constraintRight_toRightOf="@+id/textInputLayout"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp" />
 
     <Button
         android:text="@string/cancel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:fontFamily="sans-serif-light"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:id="@+id/btn_cancel"
+        style="@style/Widget.AppCompat.Button"
+        app:layout_constraintLeft_toLeftOf="@+id/textInputLayout"
+        app:layout_constraintRight_toLeftOf="@+id/guideline9"
         app:layout_constraintTop_toTopOf="@+id/btn_create_room"
-        android:layout_marginEnd="16dp"
-        app:layout_constraintRight_toRightOf="parent"
-        android:layout_marginRight="16dp"
-        style="@style/Widget.AppCompat.Button" />
+        app:layout_constraintBottom_toBottomOf="@+id/btn_create_room"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp" />
 
     <TextView
         android:text="@string/caracter_count"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:id="@+id/quant_char_text"
-        android:layout_marginTop="8dp"
-        app:layout_constraintTop_toBottomOf="@+id/textInputLayout"
         android:textAppearance="@style/TextAppearance.AppCompat.Small"
         android:textSize="12sp"
         android:textAllCaps="false"
         android:fontFamily="sans-serif"
-        android:layout_marginStart="16dp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        android:layout_marginLeft="16dp" />
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayout"
+        app:layout_constraintLeft_toLeftOf="@+id/textInputLayout"
+        app:layout_constraintRight_toRightOf="@+id/textInputLayout"
+        app:layout_constraintHorizontal_bias="0.0"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp" />
+
+    <TextView
+        android:text="Qual a sua opinião?"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView4"
+        android:layout_marginTop="16dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="@+id/textInputLayout"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:textAppearance="@style/TextAppearance.AppCompat.SearchResult.Subtitle"
+        android:layout_marginEnd="8dp"
+        android:fontFamily="sans-serif-light"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginRight="8dp"
+        app:layout_constraintHorizontal_bias="0.0" />
+
+    <android.support.constraint.Guideline
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/guideline9"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.5052083"
+        tools:layout_editor_absoluteY="0dp"
+        tools:layout_editor_absoluteX="194dp" />
 
     <android.support.design.widget.TextInputLayout
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        android:layout_marginTop="16dp"
-        app:layout_constraintTop_toTopOf="parent"
         android:id="@+id/textInputLayout"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginRight="16dp"
+        android:hint=""
         tools:layout_constraintRight_creator="1"
-        tools:layout_constraintLeft_creator="1">
+        tools:layout_constraintLeft_creator="1"
+        app:hintTextAppearance="@style/TextAppearance.AppCompat.Light.SearchResult.Subtitle"
+        app:layout_constraintTop_toBottomOf="@+id/textView4"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="4dp">
 
         <EditText
             android:layout_height="wrap_content"
             android:inputType="textMultiLine"
-            android:lines="3"
+            android:lines="4"
+            android:background="@drawable/edit_text_radius"
             android:gravity="top|left"
             android:ems="10"
+            android:fontFamily="sans-serif-light"
             android:id="@+id/edt_post"
-            android:hint="Digite sua opinião"
+            android:padding="8dp"
+            android:layout_margin="8dp"
             android:layout_width="match_parent"
             tools:ignore="RtlHardcoded"
             android:maxLength="@integer/max_theme_name"/>
+
     </android.support.design.widget.TextInputLayout>
 
 </android.support.constraint.ConstraintLayout>

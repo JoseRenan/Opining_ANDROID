@@ -39,4 +39,8 @@
         <item name="colorControlActivated">@color/colorAccentAmber</item>
     </style>
 
+    <style name="error_appearance" parent="@android:style/TextAppearance">
+        <item name="android:textColor">#cde64a19</item>
+    </style>
+
 </resources>
