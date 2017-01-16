@@ -102,6 +102,9 @@ public class LoginPresenterImpl implements LoginPresenter, LoginModel.OnLoginLis
         if (password.isEmpty()) {
             isValid = false;
             mView.showInvalidPasswordError(mView.get().getString(R.string.error_password_empty));
+        } else if (!ValidatorHelper.validatePassword(password)){
+            isValid = false;
+            mView.showInvalidPasswordError(mView.get().getString(R.string.error_password));
         }
 
         return isValid;
