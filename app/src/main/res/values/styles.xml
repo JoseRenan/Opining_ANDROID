@@ -40,7 +40,7 @@
     </style>
 
     <style name="error_appearance" parent="@android:style/TextAppearance">
-        <item name="android:textColor">#cde64a19</item>
+        <item name="android:textColor">@color/colorPrimaryAmber</item>
+        <item name="android:textSize">12sp</item>
     </style>
-
 </resources>
