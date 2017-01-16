@@ -3,6 +3,7 @@ package br.com.opining.mvp.login;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.design.widget.TextInputLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
@@ -22,6 +23,8 @@ public class LoginActivity extends AppCompatActivity implements LoginView {
     private EditText editEmail;
     private EditText editPassword;
     private FrameLayout frameLoading;
+    private TextInputLayout layoutEmail;
+    private TextInputLayout layoutPassword;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,7 +46,27 @@ public class LoginActivity extends AppCompatActivity implements LoginView {
         });
 
         editEmail = (EditText) findViewById(R.id.edt_login);
+        layoutEmail = (TextInputLayout) findViewById(R.id.input_login);
+        editEmail.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                if (hasFocus){
+                    layoutEmail.setErrorEnabled(false);
+                }
+            }
+        });
+
         editPassword = (EditText) findViewById(R.id.edt_password);
+        layoutPassword = (TextInputLayout) findViewById(R.id.input_password);
+        editPassword.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                if (hasFocus){
+                    layoutPassword.setErrorEnabled(false);
+                }
+            }
+        });
+
     }
 
     public void doLogin(View view) {
@@ -81,13 +104,15 @@ public class LoginActivity extends AppCompatActivity implements LoginView {
     @Override
     public void showInvalidPasswordError(String msg) {
         startLoading(false);
-        editPassword.setError(msg);
+        layoutPassword.setErrorEnabled(true);
+        layoutPassword.setError(msg);
     }
 
     @Override
     public void showInvalidEmailError(String msg) {
         startLoading(false);
-        editEmail.setError(msg);
+        layoutEmail.setErrorEnabled(true);
+        layoutEmail.setError(msg);
     }
 
     @Override

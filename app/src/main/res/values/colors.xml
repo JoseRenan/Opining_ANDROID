@@ -2,6 +2,7 @@
 
 <resources>
 
+    <color name="invisible">#00F9F9F9</color>
     <color name="grey">#F9F9F9</color>
     <color name="grey_dark">#f9161616</color>
     <color name="white">#FFF</color>
@@ -9,7 +10,7 @@
     <color name="orange">#E64A19</color>
     <color name="green">#4caf50</color>
 
-    <color name="invisibleWhite">#80FFFFFF</color>
+    <color name="invisibleWhite">#80ffffff</color>
 
     <color name="colorPrimaryDeepPurple">#673AB7</color>
     <color name="colorPrimaryDarkDeepPurple">#512DA8</color>
