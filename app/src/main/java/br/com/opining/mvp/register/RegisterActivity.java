@@ -3,6 +3,7 @@ package br.com.opining.mvp.register;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.design.widget.TextInputLayout;
 import android.support.v4.app.NavUtils;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -27,6 +28,10 @@ public class RegisterActivity extends AppCompatActivity implements RegisterView 
     private FrameLayout frameLoading;
     private RegisterPresenter mPresenter;
     private boolean isLoading;
+    private TextInputLayout layoutName;
+    private TextInputLayout layoutEmail;
+    private TextInputLayout layoutPassword;
+    private TextInputLayout layoutConfirmPassword;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,6 +52,44 @@ public class RegisterActivity extends AppCompatActivity implements RegisterView 
         edtEmail = (EditText) findViewById(R.id.edt_email);
         edtPassword = (EditText) findViewById(R.id.edt_password);
         edtConfirmPassword = (EditText) findViewById(R.id.edt_repeat_password);
+
+        layoutName = (TextInputLayout) findViewById(R.id.input_name);
+        layoutEmail = (TextInputLayout) findViewById(R.id.input_email);
+        layoutPassword = (TextInputLayout) findViewById(R.id.input_password);
+        layoutConfirmPassword = (TextInputLayout) findViewById(R.id.input_confirm_password);
+
+        edtName.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                if (hasFocus){
+                    layoutName.setErrorEnabled(false);
+                }
+            }
+        });
+        edtEmail.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                if (hasFocus){
+                    layoutEmail.setErrorEnabled(false);
+                }
+            }
+        });
+        edtPassword.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                if (hasFocus){
+                    layoutPassword.setErrorEnabled(false);
+                }
+            }
+        });
+        edtConfirmPassword.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                if (hasFocus){
+                    layoutConfirmPassword.setErrorEnabled(false);
+                }
+            }
+        });
     }
 
     public void doRegister(View v) {
@@ -82,25 +125,29 @@ public class RegisterActivity extends AppCompatActivity implements RegisterView 
     @Override
     public void showInvalidPasswordError(String msg) {
         startLoading(false);
-        edtPassword.setError(msg);
+        layoutPassword.setErrorEnabled(true);
+        layoutPassword.setError(msg);
     }
 
     @Override
     public void showInvalidEmailError(String msg) {
         startLoading(false);
-        edtEmail.setError(msg);
+        layoutEmail.setErrorEnabled(true);
+        layoutEmail.setError(msg);
     }
 
     @Override
     public void showInvalidPasswordMatchError() {
         startLoading(false);
-        edtConfirmPassword.setError(getString(R.string.error_confirm_password));
+        layoutConfirmPassword.setErrorEnabled(true);
+        layoutConfirmPassword.setError(getString(R.string.error_confirm_password));
     }
 
     @Override
     public void showInvalidNameError(String msg) {
         startLoading(false);
-        edtName.setError(msg);
+        layoutName.setErrorEnabled(true);
+        layoutName.setError(msg);
     }
 
     private void startLoading(boolean value){
