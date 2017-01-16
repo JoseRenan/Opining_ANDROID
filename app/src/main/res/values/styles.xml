@@ -43,4 +43,5 @@
         <item name="android:textColor">@color/colorPrimaryAmber</item>
         <item name="android:textSize">12sp</item>
     </style>
+
 </resources>

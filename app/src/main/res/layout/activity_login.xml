@@ -161,7 +161,7 @@
                 android:id="@+id/guideline"
                 android:orientation="vertical"
                 tools:layout_editor_absoluteY="0dp"
-                tools:layout_editor_absoluteX="96dp"
+                tools:layout_editor_absoluteX="0dp"
                 app:layout_constraintGuide_percent="0.25" />
 
             <android.support.constraint.Guideline
@@ -171,7 +171,7 @@
                 android:orientation="vertical"
                 app:layout_constraintGuide_percent="0.75"
                 tools:layout_editor_absoluteY="0dp"
-                tools:layout_editor_absoluteX="288dp" />
+                tools:layout_editor_absoluteX="0dp" />
 
             <LinearLayout
                 android:orientation="horizontal"
@@ -227,7 +227,7 @@
                 android:orientation="vertical"
                 app:layout_constraintGuide_percent="0.1015625"
                 tools:layout_editor_absoluteY="0dp"
-                tools:layout_editor_absoluteX="39dp" />
+                tools:layout_editor_absoluteX="0dp" />
 
             <android.support.constraint.Guideline
                 android:layout_width="wrap_content"
@@ -236,7 +236,7 @@
                 android:orientation="vertical"
                 app:layout_constraintGuide_percent="0.9088542"
                 tools:layout_editor_absoluteY="0dp"
-                tools:layout_editor_absoluteX="349dp" />
+                tools:layout_editor_absoluteX="0dp" />
 
             <android.support.constraint.Guideline
                 android:layout_width="wrap_content"
@@ -244,7 +244,7 @@
                 android:id="@+id/guideline5"
                 android:orientation="horizontal"
                 app:layout_constraintGuide_percent="0.2010582"
-                tools:layout_editor_absoluteY="98dp"
+                tools:layout_editor_absoluteY="100dp"
                 tools:layout_editor_absoluteX="0dp" />
 
             <android.support.constraint.Guideline
