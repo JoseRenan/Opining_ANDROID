@@ -295,19 +295,19 @@
         </ScrollView>
 
     <FrameLayout
+        android:id="@+id/lt_frame_loading"
+        style="@style/Theme.Pink"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        style="@style/Theme.Pink"
         android:background="#aa000000"
-        android:visibility="gone"
-        android:id="@+id/lt_frame_loading">
+        android:visibility="gone">
 
         <ProgressBar
+            android:id="@+id/progressBar2"
             style="?android:attr/progressBarStyleLarge"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:id="@+id/progressBar2" />
+            android:layout_gravity="center" />
 
     </FrameLayout>
 

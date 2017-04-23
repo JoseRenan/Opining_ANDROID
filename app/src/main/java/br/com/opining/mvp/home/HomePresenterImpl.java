@@ -1,9 +1,11 @@
 package br.com.opining.mvp.home;
 
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.view.View;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseException;
@@ -12,6 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import br.com.opining.domain.Room;
+import br.com.opining.mvp.room.RoomActivity;
 
 public class HomePresenterImpl implements HomePresenter, FirebaseAuth.AuthStateListener, DebateRetriever.DebateRetrieveListener {
 
@@ -23,13 +26,19 @@ public class HomePresenterImpl implements HomePresenter, FirebaseAuth.AuthStateL
     private RecyclerView.Adapter mAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
 
-    public HomePresenterImpl(HomeView mView, RecyclerView mRecyclerView) {
+    public HomePresenterImpl(final HomeView mView, RecyclerView mRecyclerView) {
         this.mView = mView;
         rooms = new ArrayList<>();
         this.mModel = new HomeModel(this);
         mLayoutManager = new LinearLayoutManager(mView.getContext());
         mRecyclerView.setLayoutManager(mLayoutManager);
-        mAdapter = new DebatesAdapter(getRooms());
+        mAdapter = new DebatesAdapter(getRooms(), new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(mView.getContext(), RoomActivity.class);
+                mView.getContext().startActivity(intent);
+            }
+        });
         mRecyclerView.setAdapter(mAdapter);
         firebase = FirebaseAuth.getInstance();
     }

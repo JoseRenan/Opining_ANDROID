@@ -1,5 +1,6 @@
 package br.com.opining.mvp.home;
 
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,19 +13,22 @@ import java.util.TimeZone;
 
 import br.com.opining.R;
 import br.com.opining.domain.Room;
+import br.com.opining.mvp.room.RoomActivity;
 
 public class DebatesAdapter extends RecyclerView.Adapter {
 
     private List<Room> rooms;
+    private View.OnClickListener clickListener;
 
-    public DebatesAdapter(List<Room> items) {
+    public DebatesAdapter(List<Room> items, View.OnClickListener clickListener) {
         this.rooms = items;
+        this.clickListener = clickListener;
     }
 
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.debate_card, parent, false);
-        ViewHolder holder = new ViewHolder(view);
+        ViewHolder holder = new ViewHolder(view, clickListener);
         return holder;
     }
 
@@ -53,19 +57,20 @@ public class DebatesAdapter extends RecyclerView.Adapter {
         return rooms.size();
     }
 
-    public class ViewHolder extends RecyclerView.ViewHolder {
+    private class ViewHolder extends RecyclerView.ViewHolder {
 
-        public TextView lblName;
-        public TextView lblPost;
-        public TextView lblDate;
-        public TextView lblParticipants;
+        private TextView lblName;
+        private TextView lblPost;
+        private TextView lblDate;
+        private TextView lblParticipants;
 
-        public ViewHolder(View view) {
+        private ViewHolder(View view, View.OnClickListener clickListener) {
             super(view);
             lblName = (TextView) view.findViewById(R.id.lbl_user_name);
             lblPost = (TextView) view.findViewById(R.id.lbl_post);
             lblDate = (TextView) view.findViewById(R.id.lbl_date);
             lblParticipants = (TextView) view.findViewById(R.id.lbl_count_participants);
+            view.setOnClickListener(clickListener);
         }
     }
 }
